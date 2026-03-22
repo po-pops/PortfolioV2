@@ -1,0 +1,48 @@
+.marqueeContainer {
+  width: 100vw;
+  background-color: var(--color-primary-yellow);
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+  padding: 0.75rem 0;
+  overflow: hidden;
+  position: relative;
+  /* z-index slightly above grid but below hero absolute items if any overlap */
+  z-index: 20;
+  display: flex;
+  /* Helps avoid white space below inline elements */
+}
+
+.marqueeContent {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 30s linear infinite;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+}
+
+.marqueeItem {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0 2rem;
+  color: var(--color-text-dark);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    /* Translate exactly the width of one set of skills. 
+       We duplicated the array 4 times, so we translate by 25% */
+    transform: translateX(-25%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeItem {
+    font-size: 0.8rem;
+    padding: 0 1rem;
+  }
+}

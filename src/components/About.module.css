@@ -1,0 +1,145 @@
+.about {
+  width: 100vw;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  position: relative;
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+}
+
+/* Image Column styles */
+.imageCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The flower shape behind the photo */
+.blobBackground {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: url('/fleur.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.photoContainer {
+  position: relative;
+  z-index: 1;
+  width: 70%;
+  aspect-ratio: 1/1.25;
+  background-color: transparent;
+  border: 2px solid var(--color-primary-yellow);
+  transform: rotate(-6deg);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.photoContainer:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.photoPlaceholder {
+  font-size: 5rem;
+}
+
+.photoImage {
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+  display: block;
+}
+
+
+/* Text Column styles */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hello {
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-dark);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.cvButton {
+  margin-top: var(--spacing-sm);
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .textCol {
+    align-items: center;
+    /* Center align text content on mobile */
+  }
+
+  .imageCol {
+    order: -1;
+    /* Image first on mobile */
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .photoContainer {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .photoContainer {
+    width: 80%;
+  }
+
+  .blobBackground {
+    transform: scale(0.8);
+  }
+}

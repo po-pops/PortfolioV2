@@ -1,0 +1,354 @@
+.projectPage {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-background-grid);
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  position: relative;
+  width: 100vw;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 100px;
+  padding-bottom: var(--spacing-xxl);
+}
+
+.cloudBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/background-ciel.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--max-width-container);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+
+}
+
+.heroInfoCard {
+  background-color: var(--color-tertiary-pink);
+  border: 1px solid var(--color-border);
+  border-radius: 0px 40px 40px 0px;
+  padding: var(--spacing-xl);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subTitleHero {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+
+}
+
+.projectTitle {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.projectDesc {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-lg);
+}
+
+.metaInfo {
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.brand {
+  margin-bottom: 2px;
+}
+
+.visitButton {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-text-dark);
+}
+
+.heroMockup {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mockupWrapper {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+.mockupImg {
+  width: auto;
+  max-width: 350px;
+  height: auto;
+}
+
+.floatingLabels {
+  position: absolute;
+  top: 10%;
+  left: -20%;
+  font-size: min(10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: var(--color-primary-yellow);
+  z-index: -1;
+  white-space: nowrap;
+}
+
+/* --- SECTIONS COMMON --- */
+.sectionTitleWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-primary-yellow);
+  transform-origin: left;
+}
+
+/* --- BESOIN DU CLIENT --- */
+.besoinSection {
+  padding: var(--spacing-xxl) 0;
+  text-align: center;
+}
+
+.besoinTextContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.besoinParagraph {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+/* --- CONCEPTION SECTION --- */
+.conceptionSection {
+  padding: var(--spacing-xxl) 0;
+}
+
+.stepsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stepCard {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
+}
+
+.stepNumber {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-tertiary-pink);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.stepContent h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stepContent p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* --- ART DIRECTION --- */
+.artSection {
+  padding: var(--spacing-xxl) 0;
+}
+
+.artLayout {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.swatchesRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-content: center;
+}
+
+.swatch {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.artMeta {
+  display: flex;
+  gap: 4rem;
+  text-align: left;
+}
+
+.metaCol h4 {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.metaCol p {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.stickersGallery {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mainSticker {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* --- MAQUETTE SECTION --- */
+.maquetteSection {
+  padding: var(--spacing-xxl) 0;
+  padding-bottom: 256px;
+}
+
+.mockupPhone {
+  width: 80vw;
+  height: auto;
+}
+
+.mockupLarge {
+  z-index: 2;
+  transform: translateY(-20px);
+}
+
+.mockupBottom {
+  margin-top: var(--spacing-xl);
+  font-size: 1.1rem;
+  width: 40vw;
+  text-align: center;
+}
+
+.finalButtonWrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroInfoCard {
+    align-items: center;
+    max-width: 90%;
+  }
+
+  .heroMockup {
+    justify-content: center;
+  }
+
+  .artMeta {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mockupTriple {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mockupLarge {
+    transform: none;
+  }
+
+  .besoinParagraph {
+    font-size: 1.1rem;
+  }
+
+  .stepsGrid {
+    padding: 0 var(--spacing-md);
+  }
+}

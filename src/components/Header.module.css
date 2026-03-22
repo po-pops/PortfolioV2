@@ -1,0 +1,222 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem var(--spacing-lg);
+  z-index: 50;
+  /* Ensure it stays above hero content */
+}
+
+.navContainer {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  /* Center the nav items */
+  align-items: center;
+  position: relative;
+  /* For absolutely positioning the CTA */
+}
+
+.desktopNav {
+  display: flex;
+  gap: 2.5rem;
+  background: transparent;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.navLink:hover {
+  font-weight: 500;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-yellow, #FCEE59);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.desktopCta {
+  position: absolute;
+  right: 0;
+}
+
+/* Burger Button */
+.burgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  padding: 0;
+  z-index: 60;
+  transition: transform 0.2s;
+}
+
+.burgerButton:active {
+  transform: scale(0.95);
+}
+
+.burgerButton svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* Overlay Background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 90;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar Menu */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  /* Hidden off-screen by default */
+  width: 85%;
+  max-width: 420px;
+  height: 100vh;
+  background-color: var(--color-secondary-blue);
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border: 2px solid var(--color-border);
+  border-right: none;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+  transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 3rem 4rem 4rem;
+}
+
+.sidebarOpen {
+  right: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #222;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mobileNavLink {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  text-decoration: none;
+}
+
+.mobileCta {
+  margin-bottom: auto;
+  /* Pushes socials to the bottom */
+}
+
+/* The button should not take full width, keep it somewhat tight to text */
+.mobileSocials {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-primary-yellow);
+  border: 2px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--color-text-dark);
+}
+
+.socialIcon:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px 0px var(--color-border);
+}
+
+.socialIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .desktopCta {
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 90%;
+    padding: 5rem 2rem 3rem 2rem;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+  }
+}

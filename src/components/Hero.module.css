@@ -1,0 +1,194 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  /* Takes full viewport height exactly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #87CEEB;
+  /* Fallback sky color */
+}
+
+.cloudBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/background-ciel.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Central Typography */
+.titleContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.titleBase {
+  display: flex;
+  flex-direction: column;
+  /* Use viewport width clamping, but with a smaller max to prevent wrapping */
+  font-size: clamp(5rem, 15vw, 18rem);
+  font-weight: 700;
+  line-height: 0.7;
+  color: var(--color-primary-yellow);
+  white-space: nowrap;
+  /* Prevent words like PORT from wrapping under pressure */
+}
+
+.titleWord {
+  display: block;
+}
+
+.subtitleWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  /* Let it sit between the massive words */
+}
+
+.subtitle {
+  position: absolute;
+  background-color: var(--color-tertiary-pink);
+  color: var(--color-text-dark);
+  padding: 1rem 3rem;
+  font-size: clamp(0.5rem, 5vw, 1.6rem);
+  letter-spacing: 0.01rem;
+  border-radius: 50% / 100%;
+  border: 2px solid var(--color-border);
+  transform: rotate(-3deg);
+  z-index: 2;
+  font-weight: 300;
+}
+
+/* Draggable Stickers (Using real image SVGs) */
+.sticker {
+  position: absolute;
+  cursor: grab;
+  /* The rest of the styling (border, padding, backgrounds) is removed 
+     since we want the bare SVG images to show */
+}
+
+.sticker:active {
+  cursor: grabbing;
+}
+
+.stickerAki {
+  top: 12%;
+  left: 5%;
+  width: clamp(120px, 20vw, 260px);
+  transform: rotate(-10deg);
+}
+
+.stickerTcheen {
+  top: 12%;
+  right: 5%;
+  width: clamp(100px, 25vw, 300px);
+  transform: rotate(5deg);
+}
+
+.stickerLou {
+  bottom: 12%;
+  left: 5%;
+  width: clamp(150px, 22vw, 280px);
+  transform: rotate(-8deg);
+}
+
+.stickerBugs {
+  bottom: 10%;
+  right: 5%;
+  width: clamp(100px, 18vw, 220px);
+  transform: rotate(15deg);
+}
+
+@media (max-width: 768px) {
+  .titleBase {
+    font-size: clamp(4rem, 18vw, 8rem);
+  }
+
+  .subtitle {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .sticker {
+    transform: scale(0.5) !important;
+    /* Make stickers smaller on mobile */
+  }
+
+  .stickerAki {
+    top: 10%;
+    left: -10%;
+    width: 140px;
+  }
+
+  .stickerTcheen {
+    top: 8%;
+    right: -10%;
+    width: 120px;
+  }
+
+  .stickerLou {
+    bottom: 15%;
+    left: -5%;
+    width: 160px;
+  }
+
+  .stickerBugs {
+    bottom: 12%;
+    right: -5%;
+    width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleBase {
+    font-size: clamp(3.5rem, 20vw, 6rem);
+  }
+
+  .sticker {
+    transform: scale(0.4) !important;
+  }
+
+  .stickerAki {
+    top: 15%;
+    left: -15%;
+  }
+
+  .stickerTcheen {
+    top: 12%;
+    right: -15%;
+  }
+
+  .stickerLou {
+    bottom: 18%;
+    left: -10%;
+  }
+
+  .stickerBugs {
+    bottom: 15%;
+    right: -10%;
+  }
+}

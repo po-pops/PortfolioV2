@@ -1,0 +1,58 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 400;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Variants */
+.variant-primary {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-text-dark);
+}
+
+.variant-secondary {
+  background-color: white;
+  color: var(--color-text-dark);
+}
+
+.variant-dark {
+  background-color: var(--color-text-dark);
+  color: white;
+}
+
+.variant-dark path {
+  fill: white;
+}
+
+/* Icon rotation specifically designed for the arrow */
+.button:hover .iconWrapper {
+  transform: translateX(2px);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}

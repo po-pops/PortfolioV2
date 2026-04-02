@@ -33,7 +33,7 @@ const projectsData = [
     year: "2026",
     color: "#eab8d1", // Pink
     buttonVariant: "primary",
-    image: "/mockup-aki-hp.png",
+    image: "/mockup-aki-hp.webp",
     tools: [FigmaIcon, NotionIcon, PenIcon]
   },
   {
@@ -44,7 +44,7 @@ const projectsData = [
     year: "2026",
     color: "#f5e751", // Yellow
     buttonVariant: "dark",
-    image: "/mockup-tcheen-hp.png",
+    image: "/mockup-tcheen-hp.webp",
     tools: [FigmaIcon, NotionIcon]
   },
   {
@@ -55,7 +55,7 @@ const projectsData = [
     year: "2025",
     color: "#a3deb3", // Green
     buttonVariant: "primary",
-    image: "/mockup-loucantou-hp.png",
+    image: "/mockup-loucantou-hp.webp",
     tools: [FigmaIcon, NotionIcon, PenIcon]
   },
   {
@@ -66,7 +66,7 @@ const projectsData = [
     year: "2025",
     color: "#A9D0E4", // Blue
     buttonVariant: "primary",
-    image: "/mockup-millebugs-hp.png",
+    image: "/mockup-millebugs-hp.webp",
     tools: [FigmaIcon, NotionIcon, PenIcon]
   }
 ];

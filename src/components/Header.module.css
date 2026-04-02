@@ -34,9 +34,6 @@
   padding-bottom: 4px;
 }
 
-.navLink:hover {
-  font-weight: 500;
-}
 
 .navLink::after {
   content: '';
@@ -68,6 +65,7 @@
   border: none;
   cursor: pointer;
   position: absolute;
+  top: 15px;
   right: 0;
   padding: 0;
   z-index: 60;

@@ -12,6 +12,7 @@
   border: 1px solid var(--color-border);
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 /* Hover effect */

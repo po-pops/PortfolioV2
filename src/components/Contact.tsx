@@ -15,7 +15,7 @@ export const Contact = ({ onContactClick }: ContactProps) => {
         {/* Left Col: Text */}
         <div className={styles.textCol}>
           <h2 className={styles.title}>
-            Une idée ? Un projet ? <br />
+            💡 Une idée ? Un projet ? <br />
             Parlons-en autour d'un café.
           </h2>
           <div className={styles.description}>

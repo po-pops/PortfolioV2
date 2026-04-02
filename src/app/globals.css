@@ -56,7 +56,7 @@
 
 :root {
   /* Colors */
-  --color-primary-yellow: rgba(252, 238, 89, 1);
+  --color-primary-yellow: #FCEE59;
   /* Main CTA yellow */
   --color-secondary-blue: #A9D0E4;
   /* Marquee/Projects background blue */
@@ -146,4 +146,25 @@ button {
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+/* Lenis Recommended CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

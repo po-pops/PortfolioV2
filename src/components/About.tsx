@@ -34,7 +34,14 @@ export const About = () => {
             </p>
           </div>
 
-          <Button variant="primary" icon className={styles.cvButton}>
+          <Button
+            variant="primary"
+            icon
+            className={styles.cvButton}
+            href="/cv_pauline_yvelin.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Voir mon CV
           </Button>
         </div>

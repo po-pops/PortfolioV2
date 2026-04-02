@@ -164,31 +164,35 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    height: 90svh;
+  }
+
   .titleBase {
-    font-size: clamp(3.5rem, 20vw, 6rem);
+    font-size: clamp(5rem, 20vw, 9rem);
   }
 
   .sticker {
-    transform: scale(0.4) !important;
+    transform: scale(1) !important;
   }
 
   .stickerAki {
     top: 15%;
-    left: -15%;
+    left: 8%;
   }
 
   .stickerTcheen {
-    top: 12%;
-    right: -15%;
+    top: 35%;
+    right: 8%;
   }
 
   .stickerLou {
-    bottom: 18%;
-    left: -10%;
+    bottom: 30%;
+    left: 2%;
   }
 
   .stickerBugs {
-    bottom: 15%;
-    right: -10%;
+    bottom: 20%;
+    right: 2%;
   }
 }

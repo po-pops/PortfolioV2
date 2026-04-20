@@ -112,14 +112,14 @@
 
 .mockupImg {
   width: auto;
-  max-width: 350px;
+  max-width: 450px;
   height: auto;
 }
 
 .floatingLabels {
   position: absolute;
   top: 10%;
-  left: -20%;
+  left: 0%;
   font-size: min(10vw, 8rem);
   font-weight: 800;
   line-height: 0.8;
@@ -320,7 +320,18 @@
 
 .mockupPhone {
   width: 80vw;
+  max-width: 900px;
   height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.mockupTriple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
 }
 
 .mockupLarge {
@@ -330,8 +341,11 @@
 
 .mockupBottom {
   margin-top: var(--spacing-xl);
+  margin-left: auto;
+  margin-right: auto;
   font-size: 1.1rem;
-  width: 40vw;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
 }
 

@@ -66,21 +66,21 @@
   justify-content: center;
   align-items: center;
   height: 0;
-  /* Let it sit between the massive words */
 }
 
 .subtitle {
   position: absolute;
   background-color: var(--color-tertiary-pink);
   color: var(--color-text-dark);
-  padding: 1rem 3rem;
-  font-size: clamp(0.5rem, 5vw, 1.6rem);
+  padding: 1.5rem 3.3rem;
+  font-size: clamp(0.5rem, 5vw, 1.8rem);
   letter-spacing: 0.01rem;
-  border-radius: 50% / 100%;
-  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
   transform: rotate(-3deg);
   z-index: 2;
   font-weight: 300;
+  white-space: nowrap;
 }
 
 /* Draggable Stickers (Using real image SVGs) */

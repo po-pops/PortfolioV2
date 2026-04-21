@@ -106,6 +106,10 @@ export default function LegalPage() {
               <h2 style={{ marginTop: '2rem' }}>Droit applicable</h2>
               <p>Le présent site est soumis au droit français.</p>
             </div>
+            <div className={styles.legalBlock}>
+              <h2 style={{ marginTop: '2rem' }}>Crédits</h2>
+              <p>Site développé par <a href="https://thomas-riquier.viturna.fr/" target="_blank" rel="noopener noreferrer">Thomas Riquier</a></p>
+            </div>
 
           </div>
         </div>

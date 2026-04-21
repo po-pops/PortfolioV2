@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: 'Pauline Yvelin Portfolio',
     images: [
       {
-        url: '/Moi.webp',
+        url: '/vignette.jpg',
         width: 1200,
         height: 630,
         alt: 'Pauline Yvelin - Product Designer',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Product Designer & UI/UX Specialist | Pauline Yvelin',
     description: 'Portfolio de Pauline Yvelin, Product Designer spécialisée en UI/UX.',
-    images: ['/Moi.webp'],
+    images: ['/vignette.jpg'],
   },
 };
 

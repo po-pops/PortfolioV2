@@ -8,61 +8,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
+import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
 
-// Component for the animated underline
-const AnimatedUnderline = ({ title }: { title: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  return (
-    <div className={styles.sectionTitleWrapper} ref={ref}>
-      <h2 className={styles.sectionTitle}>
-        {title}
-        <motion.div
-          className={styles.underline}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
-      </h2>
-    </div>
-  );
-};
-
-// Component for the line-by-line text fade
-const FadeText = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-
-// Component for the sliding steps
-const Step = ({ number, title, content, index }: { number: string, title: string, content: string, index: number }) => {
-  return (
-    <motion.div
-      className={styles.stepCard}
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
-      <div className={styles.stepNumber} style={{ backgroundColor: '#f5e751' }}>{number}</div>
-      <div className={styles.stepContent}>
-        <h3>{title}</h3>
-        <p>{content}</p>
-      </div>
-    </motion.div>
-  );
-};
 
 export default function TcheenProject() {
   return (
@@ -89,8 +37,8 @@ export default function TcheenProject() {
               <p className={styles.year}>2026</p>
             </div>
 
-            <Button variant="dark" href="https://tcheen.com" icon className={styles.visitButton} target='_blank'>
-              Visiter l'expérience
+            <Button variant="black" href="https://tcheen.com" icon className={styles.visitButton} target='_blank'>
+              Découvrir la refonte
             </Button>
           </div>
 
@@ -111,17 +59,18 @@ export default function TcheenProject() {
         </div>
       </section>
 
-      <Marquee items={["UX/UI Design", "UX/UI Design", "UX/UI Design", "UX/UI Design"]} />
+      <Marquee variant="pink" items={["UX/UI Design", "UX/UI Design", "UX/UI Design", "UX/UI Design"]} />
 
       {/* BESOIN SECTION */}
       <section className={`${styles.besoinSection} bg-grid`}>
         <div className={styles.container}>
-          <AnimatedUnderline title="Besoin du client" />
+          <AnimatedUnderline variant="pink" title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <FadeText>
-              <p className={styles.besoinParagraph}>Suite à une évolution de son positionnement, Tcheen souhaitait moderniser son site web afin de mieux refléter sa nouvelle stratégie et toucher une cible plus professionnelle.</p>
-              <p className={styles.besoinParagraph}>L’objectif était également de concevoir une expérience digitale cohérente avec leur branding, capable de renforcer leur crédibilité.</p>
-            </FadeText>
+            <WordReveal
+              className={styles.besoinParagraph}
+              text={`Suite à une évolution de son positionnement, Tcheen souhaitait moderniser son site web afin de mieux refléter sa nouvelle stratégie et toucher une cible plus professionnelle.
+L’objectif était également de concevoir une expérience digitale cohérente avec leur branding, capable de renforcer leur crédibilité.`}
+            />
           </div>
         </div>
       </section>
@@ -129,31 +78,35 @@ export default function TcheenProject() {
       {/* CONCEPTION SECTION */}
       <section className={`${styles.conceptionSection} bg-grid`}>
         <div className={styles.container}>
-          <AnimatedUnderline title="Conception du projet" />
+          <AnimatedUnderline variant="pink" title="Conception du projet" />
           <div className={styles.stepsGrid}>
             <Step
               number="1"
               title="Analyse du positionnement et du branding"
               content="Approfondissement du branding existant pour bien comprendre les composantes de l'identité graphique et le nouveau positionnement de Tcheen."
               index={0}
+              backgroundColor="#f5e751"
             />
             <Step
               number="2"
               title="Structuration de l'arborescence du site"
               content="Définition du parcours client idéal, organisation des contenus et de la structure de l'information pour garantir une hiérarchie claire et intuitive."
               index={1}
+              backgroundColor="#f5e751"
             />
             <Step
               number="3"
               title="Création d'un design system modulable"
               content="Design d'une bibliothèque de composants réutilisables dans Figma afin de faciliter la conception des différentes pages du site et d'assurer une cohérence visuelle globale."
               index={2}
+              backgroundColor="#f5e751"
             />
             <Step
               number="4"
               title="Conception des interactions et préparation au développement"
               content="L’étape de prototypage sur Figma nous a permis de tester les parcours utilisateurs et de préparer le développement sur WordPress, en collaboration avec l’équipe en charge du développement et du SEO."
               index={3}
+              backgroundColor="#f5e751"
             />
           </div>
         </div>
@@ -162,15 +115,10 @@ export default function TcheenProject() {
       {/* MAQUETTE SECTION */}
       <section className={`${styles.maquetteSection} bg-grid`}>
         <div className={styles.container}>
-          <AnimatedUnderline title="Maquette du projet" />
+          <AnimatedUnderline  variant="pink" title="Maquette du projet" />
           <div className={styles.mockupTriple}>
-            <Image src="/projects/tcheen/mockups.png" width={650} height={650} alt="Tcheen Screen" className={styles.mockupPhone} />
+            <Image src="/projects/tcheen/mockups.png" width={1050} height={1050} alt="Tcheen Screen" className={styles.mockupPhone} />
           </div>
-          <p className={styles.mockupBottom}>Un site plus moderne, le projet est disponible sur figma pour les curieux. Vous pourrez y découvrir plus en détails les maquettes les composants ainsi que toutes les interactions d'interfaces.</p>
-
-          {/* <div className={styles.finalButtonWrapper}>
-            <Button href="https://www.figma.com/design/FNKMAXDrtiWOpFbIikUPGQ/Aki--tu-penses?node-id=0-1&t=2kRZIlD8EBxm90W9-1" icon target="_blank">Accéder au figma</Button>
-          </div> */}
         </div>
       </section>
 

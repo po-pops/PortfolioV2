@@ -64,12 +64,13 @@
   /* Background blob pink */
   --color-background-grid: #fcfcfc;
   /* Grid background color */
-  --color-text-dark: #111111;
+  --color-text-dark: #1E1E1E;
   --color-text-light: #ffffff;
-  --color-border: #111111;
+  --color-border: #1E1E1E;
 
   /* Fonts */
   --font-family-primary: 'Nohemi', sans-serif;
+  --font-family-secondary: var(--font-poppins), sans-serif;
 
   /* Layout */
   --spacing-sm: 0.5rem;
@@ -100,7 +101,7 @@ body {
   max-width: 100vw;
   overflow-x: clip;
   /* clip instead of hidden allows position: sticky to work properly */
-  font-family: var(--font-family-primary);
+  font-family: var(--font-family-secondary);
   color: var(--color-text-dark);
   background-color: var(--color-background-grid);
   line-height: 1.5;
@@ -118,6 +119,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-family-primary);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -125,6 +127,10 @@ h6 {
 
 button {
   font-family: inherit;
+}
+
+.medium {
+  font-weight: 500;
 }
 
 /* Utilities */
@@ -147,6 +153,7 @@ button {
     linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
+
 /* Lenis Recommended CSS */
 html.lenis,
 html.lenis body {

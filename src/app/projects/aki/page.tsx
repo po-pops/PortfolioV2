@@ -8,61 +8,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
+import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
 
-// Component for the animated underline
-const AnimatedUnderline = ({ title }: { title: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  return (
-    <div className={styles.sectionTitleWrapper} ref={ref}>
-      <h2 className={styles.sectionTitle}>
-        {title}
-        <motion.div
-          className={styles.underline}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
-      </h2>
-    </div>
-  );
-};
-
-// Component for the line-by-line text fade
-const FadeText = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-
-// Component for the sliding steps
-const Step = ({ number, title, content, index }: { number: string, title: string, content: string, index: number }) => {
-  return (
-    <motion.div
-      className={styles.stepCard}
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
-      <div className={styles.stepNumber}>{number}</div>
-      <div className={styles.stepContent}>
-        <h3>{title}</h3>
-        <p>{content}</p>
-      </div>
-    </motion.div>
-  );
-};
 
 export default function AkiProject() {
   return (
@@ -81,8 +29,7 @@ export default function AkiProject() {
               Revenir à l’accueil</a>
             <h1 className={styles.projectTitle}>Aki' tu penses</h1>
             <p className={styles.projectDesc}>
-              Aki’tu penses est un jeu interactif conçu lors d’une collaboration entre le département MMI et le Musée des Beaux-Arts de Bordeaux.<br />
-              Installé dans une salle du musée, il s’inspire du principe d’Akinator pour faire deviner un personnage d’un des tableaux identifiés à partir de questions.
+              Aki’tu penses est un jeu interactif conçu lors d’une collaboration entre le département MMI et le Musée des Beaux-Arts de Bordeaux. Installé dans une salle du musée, il s’inspire du principe d’Akinator pour faire deviner un personnage d’un des tableaux identifiés à partir de questions.
             </p>
 
             <div className={styles.metaInfo}>
@@ -119,10 +66,11 @@ export default function AkiProject() {
         <div className={styles.container}>
           <AnimatedUnderline title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <FadeText>
-              <p className={styles.besoinParagraph}>Dans le cadre de la Bacchanight, nocturne étudiante organisée par le Musée des Beaux-Arts de Bordeaux, notre mission était de concevoir une expérience interactive capable de dynamiser la visite du musée et de capter un public jeune.</p>
-              <p className={styles.besoinParagraph}>Le musée souhaitait offrir une médiation innovante, capable de transformer la posture traditionnelle du visiteur souvent passive en une expérience participative. Il fallait créer un outil à la fois pédagogique, ludique et adapté aux usages numériques des étudiants.</p>
-            </FadeText>
+            <WordReveal 
+              className={styles.besoinParagraph}
+              text={`Dans le cadre de la Bacchanight, nocturne étudiante organisée par le Musée des Beaux-Arts de Bordeaux, notre mission était de concevoir une expérience interactive capable de dynamiser la visite du musée et de capter un public jeune.
+Le musée souhaitait offrir une médiation innovante, capable de transformer la posture traditionnelle du visiteur souvent passive en une expérience participative. Il fallait créer un outil à la fois pédagogique, ludique et adapté aux usages numériques des étudiants.`}
+            />
           </div>
         </div>
       </section>
@@ -137,24 +85,28 @@ export default function AkiProject() {
               title="Analyse des besoins et du public"
               content="Nous avons ciblé les 18-25 ans cherchant la participation, en tenant compte des contraintes de l'espace pour une immersion totale et accessible."
               index={0}
+              backgroundColor="var(--color-tertiary-pink)"
             />
             <Step
               number="2"
               title="Adaptation du mécanisme de jeu au contexte"
               content="Nous avons élaboré un mécanisme de questionnement en entonnoir, reprenant le principe d'Akinator tout en le simplifiant pour garantir fluidité et rapidité."
               index={1}
+              backgroundColor="var(--color-tertiary-pink)"
             />
             <Step
               number="3"
               title="UX / Design de l'expérience numérique"
               content="Le parcours utilisateur se concentre sur : accessibilité et flexibilité, interface claire et guidée, attractivité et impact visuel, immersion et cohérence."
               index={2}
+              backgroundColor="var(--color-tertiary-pink)"
             />
             <Step
               number="4"
               title="Dimension sociale et engagement"
               content="Le dispositif encourage le partage et l'interaction directe avec les oeuvres, transformant la visite solitaire en un moment de découverte partagé et ludique avec une pointe de challenge."
               index={3}
+              backgroundColor="var(--color-tertiary-pink)"
             />
           </div>
         </div>

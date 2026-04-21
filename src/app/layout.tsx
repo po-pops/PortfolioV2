@@ -1,9 +1,56 @@
 import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import { SmoothScroll } from '@/components/SmoothScroll';
 import './globals.css';
 
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+});
+
 export const metadata: Metadata = {
-  title: 'Pauline | Portfolio Designeuse Digital',
-  description: 'Portfolio de Pauline, designeuse franco-allemande spécialisée en UX/UI.',
+  title: {
+    default: 'Product Designer & UI/UX Specialist | Pauline Yvelin',
+    template: '%s | Pauline Yvelin',
+  },
+  description: 'Portfolio de Pauline Yvelin, Product Designer spécialisée en UI/UX. Conception d\'expériences digitales élégantes, accessibles et centrées utilisateur.',
+  keywords: [
+    'Product Designer', 'UI/UX Design', 'Figma', 'Web Design', 
+    'Portfolio Design', 'Freelance Designer', 'Accessibility', 
+    'User Experience', 'Interaction Design'
+  ],
+  authors: [{ name: 'Pauline Yvelin' }],
+  creator: 'Pauline Yvelin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: 'https://paulineyvelin.net',
+    siteName: 'Pauline Yvelin Portfolio',
+    images: [
+      {
+        url: '/Moi.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Pauline Yvelin - Product Designer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Product Designer & UI/UX Specialist | Pauline Yvelin',
+    description: 'Portfolio de Pauline Yvelin, Product Designer spécialisée en UI/UX.',
+    images: ['/Moi.webp'],
+  },
 };
 
 export default function RootLayout({
@@ -12,8 +59,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" style={{ scrollBehavior: 'smooth' }}>
-      <body>{children}</body>
+    <html lang="fr" style={{ scrollBehavior: 'smooth' }} className={poppins.variable}>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Pauline Yvelin" />
+      </head>
+      <body>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

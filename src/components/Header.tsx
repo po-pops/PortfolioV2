@@ -44,12 +44,12 @@ export const Header = ({ onContactClick }: HeaderProps) => {
         >
           <svg width="60" height="60" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_1440_5312)">
-              <rect x="12.0996" y="8.09998" width="56" height="56" rx="28" fill="black" shape-rendering="crispEdges"/>
+              <rect x="12.0996" y="8.09998" width="56" height="56" rx="28" fill="black" shapeRendering="crispEdges"/>
               <path d="M48.9885 35.1H31.2107C30.5441 35.1 30.0996 35.5 30.0996 36.1C30.0996 36.7 30.5441 37.1 31.2107 37.1H48.9885C49.6552 37.1 50.0996 36.7 50.0996 36.1C50.0996 35.5 49.6552 35.1 48.9885 35.1ZM31.2107 32.1H48.9885C49.6552 32.1 50.0996 31.7 50.0996 31.1C50.0996 30.5 49.6552 30.1 48.9885 30.1H31.2107C30.5441 30.1 30.0996 30.5 30.0996 31.1C30.0996 31.7 30.5441 32.1 31.2107 32.1ZM48.9885 40.1H31.2107C30.5441 40.1 30.0996 40.5 30.0996 41.1C30.0996 41.7 30.5441 42.1 31.2107 42.1H48.9885C49.6552 42.1 50.0996 41.7 50.0996 41.1C50.0996 40.5 49.6552 40.1 48.9885 40.1Z" fill="white"/>
             </g>
             <defs>
-              <filter id="filter0_d_1440_5312" x="-0.000391006" y="-2.47955e-05" width="80.2" height="80.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter0_d_1440_5312" x="-0.000391006" y="-2.47955e-05" width="80.2" height="80.2" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset dy="4"/>
                 <feGaussianBlur stdDeviation="6.05"/>

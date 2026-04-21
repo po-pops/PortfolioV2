@@ -63,7 +63,7 @@
 
 .subTitleHero {
   font-size: 0.9rem;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   opacity: 0.8;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
 }
 
 .projectTitle {
-  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: var(--spacing-md);
   font-weight: 600;
 }
@@ -84,17 +84,12 @@
 
 .metaInfo {
   margin-bottom: var(--spacing-lg);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .brand {
   margin-bottom: 2px;
-}
-
-.visitButton {
-  background-color: var(--color-primary-yellow);
-  color: var(--color-text-dark);
 }
 
 .heroMockup {
@@ -129,33 +124,10 @@
 }
 
 /* --- SECTIONS COMMON --- */
-.sectionTitleWrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--spacing-xl);
-}
-
-.sectionTitle {
-  font-size: 2.2rem;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
-}
-
-.underline {
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 4px;
-  background-color: var(--color-primary-yellow);
-  transform-origin: left;
-}
 
 /* --- BESOIN DU CLIENT --- */
 .besoinSection {
   padding: var(--spacing-xxl) 0;
-  text-align: center;
 }
 
 .besoinTextContainer {
@@ -167,6 +139,7 @@
   font-size: 1.4rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .word {
@@ -176,7 +149,7 @@
 
 /* --- CONCEPTION SECTION --- */
 .conceptionSection {
-  padding: var(--spacing-xxl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
 .stepsGrid {
@@ -187,57 +160,28 @@
   margin: 0 auto;
 }
 
-.stepCard {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  padding: 1.5rem;
-  background: white;
-  border: 1px solid var(--color-border);
-  border-radius: 40px;
-}
-
-.stepNumber {
-  width: 50px;
-  height: 50px;
-  background-color: var(--color-tertiary-pink);
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: 36px;
-  flex-shrink: 0;
-}
-
-.stepContent h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.stepContent p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #444;
-}
 
 /* --- ART DIRECTION --- */
 .artSection {
-  padding: var(--spacing-xxl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
 .artLayout {
-  width: 100%;
+  width: fit-content;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   gap: var(--spacing-xl);
+  background: white;
+  border: 1px solid var(--color-border);
+  padding: 3rem;
+  border-radius: 40px;
 }
 
 .swatchesRow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   justify-content: center;
 }
@@ -299,6 +243,62 @@
   font-weight: 800;
 }
 
+/* --- LOGO GALLERY --- */
+.logoSection {
+  padding: var(--spacing-xl) 0;
+}
+
+.logoGallery {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xxl);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.logoColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logoColumn h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #111;
+}
+
+.logoImageWrapper {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.logoImg {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- MAQUETTE FULL WIDTH --- */
+.mockupFullWidth {
+  width: 100%;
+  max-width: 1000px;
+  margin: var(--spacing-lg) auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.mockupFullWidth img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .stickersGallery {
   margin-top: var(--spacing-xl);
   display: flex;
@@ -324,6 +324,21 @@
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.mockupVerticalStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+.fullWidthMockup {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 24px;
 }
 
 .mockupTriple {
@@ -357,8 +372,12 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
+  .hero {
+    padding-bottom: 0;
+  }
+
   .heroContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .heroInfoCard {
@@ -367,6 +386,11 @@
     border-right: 0px;
     border-radius: 0px;
     padding: 32px 24px;
+  }
+
+  .mockupImg {
+    width: 80vw;
+    max-width: 250px;
   }
 
   .heroMockup {

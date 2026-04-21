@@ -8,61 +8,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
+import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
 
-// Component for the animated underline
-const AnimatedUnderline = ({ title }: { title: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  return (
-    <div className={styles.sectionTitleWrapper} ref={ref}>
-      <h2 className={styles.sectionTitle}>
-        {title}
-        <motion.div
-          className={styles.underline}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
-      </h2>
-    </div>
-  );
-};
-
-// Component for the line-by-line text fade
-const FadeText = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-
-// Component for the sliding steps
-const Step = ({ number, title, content, index }: { number: string, title: string, content: string, index: number }) => {
-  return (
-    <motion.div
-      className={styles.stepCard}
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
-      <div className={styles.stepNumber} style={{ backgroundColor: '#A9D0E4' }}>{number}</div>
-      <div className={styles.stepContent}>
-        <h3>{title}</h3>
-        <p>{content}</p>
-      </div>
-    </motion.div>
-  );
-};
 
 
 export default function MilleBugsProject() {
@@ -119,11 +67,12 @@ export default function MilleBugsProject() {
         <div className={styles.container}>
           <AnimatedUnderline title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <FadeText>
-              <p className={styles.besoinParagraph}>Dans le cadre d’un workshop, notre mission était de concevoir un projet réalisable, utile et original avec les enjeux du numérique.</p>
-              <p className={styles.besoinParagraph}>Le projet a été proposé par la gendarmerie de Bordeaux, qui souhaitait répondre à une problématique concrète : la fracture numérique chez les seniors. Moins familiarisées avec les outils digitaux, ces populations sont souvent plus exposées aux risques de cybermalveillance (phishing, arnaques en ligne, e-mails frauduleux…).</p>
-              <p className={styles.besoinParagraph}>L’objectif était de concevoir un outil accessible, ludique et facilement déployable par des associations, collectivités ou structures accompagnant les personnes âgées, tout en répondant au besoin de l’utilisateur : comprendre les dangers du numérique de manière simple et concrète.</p>
-            </FadeText>
+            <WordReveal 
+              className={styles.besoinParagraph}
+              text={`Dans le cadre d’un workshop, notre mission était de concevoir un projet réalisable, utile et original avec les enjeux du numérique.
+Le projet a été proposé par la gendarmerie de Bordeaux, qui souhaitait répondre à une problématique concrète : la fracture numérique chez les seniors. Moins familiarisées avec les outils digitaux, ces populations sont souvent plus exposées aux risques de cybermalveillance (phishing, arnaques en ligne, e-mails frauduleux…).
+L’objectif était de concevoir un outil accessible, ludique et facilement déployable par des associations, collectivités ou structures accompagnant les personnes âgées, tout en répondant au besoin de l’utilisateur : comprendre les dangers du numérique de manière simple et concrète.`}
+            />
           </div>
         </div>
       </section>
@@ -135,27 +84,31 @@ export default function MilleBugsProject() {
           <div className={styles.stepsGrid}>
             <Step
               number="1"
-              title="Recherches et immersion sur le sujet"
-              content="Étude des espèces et de l'iconographie biodiversité pour créer un contenu pédagogique pertinent et scientifiquement fondé."
+              title="Analyse de la problématique et des utilisateurs"
+              content="Nous avons d’abord étudié la problématique de la fracture numérique afin d’identifier les risques rencontrés par les seniors face à la cybersécurité."
               index={0}
+              backgroundColor="#A9D0E4"
             />
             <Step
               number="2"
-              title="Réalisation du scénario de jeu"
-              content="Mise en place de mécaniques de jeu équilibrées favorisant l'apprentissage par le jeu et la coopération."
+              title="Définition du concept de jeu"
+              content="Nous avons ensuite imaginé un concept ludique inspiré du fonctionnement du jeu Mille Bornes. L’objectif était de créer un jeu simple et accessible permettant de sensibiliser les joueurs aux menaces numériques tout en leur apprenant les bonnes pratiques de cybersécurité."
               index={1}
+              backgroundColor="#A9D0E4"
             />
             <Step
               number="3"
-              title="Illustration et direction artistique du produit"
-              content="Création d'un univers visuel unique avec des illustrations originales pour chaque espèce de 'bug'."
+              title="Conception des cartes et du contenu pédagogique"
+              content="Nous avons conçu différentes cartes représentant des situations de cybermalveillance ainsi que des cartes de protection et d’action. Chaque carte permettait d’illustrer une situation concrète et de transmettre des réflexes essentiels pour se protéger sur internet."
               index={2}
+              backgroundColor="#A9D0E4"
             />
             <Step
               number="4"
-              title="Réalisation et test de prototype"
-              content="Tests utilisateurs avec des prototypes physiques pour affiner les règles et l'ergonomie des cartes."
+              title="Design et accessibilité du jeu"
+              content="Enfin, nous avons travaillé sur le design du jeu afin de rendre les informations claires et compréhensibles. Les pictogrammes, les textes et les visuels ont été pensés pour faciliter la lecture et proposer une expérience à la fois pédagogique, ludique et accessible."
               index={3}
+              backgroundColor="#A9D0E4"
             />
           </div>
         </div>
@@ -168,28 +121,23 @@ export default function MilleBugsProject() {
 
           <div className={styles.artLayout}>
             <div className={styles.swatchesRow}>
-              <div className={styles.swatch} style={{ backgroundColor: '#111' }} data-color="#111"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#FFF' }} data-color="#FFF"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#A9D0E4' }} data-color="#A9D0E4"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#f4aacf' }} data-color="#f4aacf"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#ff7a42' }} data-color="#ff7a42"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#a3deb3' }} data-color="#a3deb3"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#FFFFFF' }} data-color="#FFFFFF"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#F7F2E2' }} data-color="#F7F2E2"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#78B1F9' }} data-color="#78B1F9"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#E83D5D' }} data-color="#E83D5D"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#9366D0' }} data-color="#9366D0"></div>
+              <div className={styles.swatch} style={{ backgroundColor: '#FCEE59' }} data-color="#FCEE59"></div>
             </div>
 
             <div className={styles.artMeta}>
               <div className={styles.metaCol}>
                 <h4>Titres</h4>
-                <p>Iberpangea (Variable)</p>
+                <p>Archivo Black <br /> Archivo Black <br /> Archivo Black</p>
               </div>
               <div className={styles.metaCol}>
                 <h4>Corps de texte</h4>
-                <p>Iberpangea (Regular)</p>
+                <p>Albert Sans <br /> Albert Sans <br /> Albert Sans</p>
               </div>
-            </div>
-
-            <div className={styles.stickersGallery}>
-              <Image src="/Sticker_Millebugs2.svg" alt="Mille Bugs Sticker" width={400} height={400} className={styles.mainSticker} />
-              <Image src="/MilleBugs_Sticker.svg" alt="Mille Bugs Logo" width={300} height={300} />
             </div>
           </div>
         </div>
@@ -198,11 +146,9 @@ export default function MilleBugsProject() {
       {/* MAQUETTE SECTION */}
       <section className={`${styles.maquetteSection} bg-grid`}>
         <div className={styles.container}>
-          <AnimatedUnderline title="Maquette du projet" />
-          <div className={styles.mockupTriple}>
-            <Image src="/aki_mockups3 mob-1.webp" alt="Mille Bugs Cards 1" width={280} height={560} className={styles.mockupPhone} />
-            <Image src="/mockup-millebugs-hp.webp" alt="Mille Bugs Cards 2" width={320} height={640} className={`${styles.mockupPhone} ${styles.mockupLarge}`} />
-            <Image src="/aki_mockups3 mob-1.webp" alt="Mille Bugs Cards 3" width={280} height={560} className={styles.mockupPhone} />
+          <div className={styles.mockupVerticalStack}>
+            <Image src="/projects/millebugs/mockups1.png" alt="Mille Bugs Game Board" width={1000} height={800} className={styles.fullWidthMockup} />
+            <Image src="/projects/millebugs/mockups2.png" alt="Mille Bugs Table Composition" width={1000} height={800} className={styles.fullWidthMockup} />
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, une vidéo est disponible de notre intervention à l’Échoppe Seniors au Club de Queyries-Bastide !</p>
 

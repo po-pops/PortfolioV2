@@ -1,0 +1,162 @@
+.legalPage {
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* --- HERO --- */
+.hero {
+  height: 90dvh;
+  min-height: 400px;
+  background-image: url('/background-ciel.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.legalTitle {
+  font-family: var(--font-family-primary);
+  font-size: clamp(4rem, 10vw, 10rem);
+  color: var(--color-primary-yellow);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.legalTitleLarge {
+  font-size: 1.14em;
+}
+
+.stickerWrapper {
+  position: relative;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.lostSticker {
+  position: absolute;
+  background-color: var(--color-tertiary-pink);
+  color: var(--color-text-dark);
+  padding: 1.5rem 3.3rem;
+  font-size: clamp(0.5rem, 5vw, 1.8rem);
+  letter-spacing: 0.01rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  transform: rotate(-3deg);
+  z-index: 2;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+/* --- MARQUEE OVERRIDE --- */
+.legalMarquee {
+  background-color: var(--color-primary-yellow) !important;
+  border-top: 1px solid var(--color-text-dark);
+  border-bottom: 1px solid var(--color-text-dark);
+}
+
+/* --- CONTENT --- */
+.contentSection {
+  padding: 80px 0;
+  width: 100vw;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+}
+
+.legalGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.legalBlock {
+  position: relative;
+  padding-top: 60px;
+}
+
+.legalBlock:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-yellow);
+}
+
+.legalBlock h2 {
+  font-family: var(--font-family-primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.legalBlock p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
+}
+
+.legalBlock a {
+  color: var(--color-text-dark);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.legalBlock ul {
+  list-style: none;
+  padding: 0;
+}
+
+.legalBlock li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.legalBlock li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-yellow);
+}
+
+@media (max-width: 768px) {
+  .legalTitle {
+    font-size: 5rem;
+  }
+
+  .hero {
+    height: 40vh;
+  }
+
+  .contentSection {
+    padding: 40px 0;
+  }
+}

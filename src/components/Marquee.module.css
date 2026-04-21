@@ -1,15 +1,19 @@
 .marqueeContainer {
   width: 100vw;
   background-color: var(--color-primary-yellow);
-  border-top: 2px solid var(--color-border);
-  border-bottom: 2px solid var(--color-border);
-  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.55rem 0;
   overflow: hidden;
   position: relative;
   /* z-index slightly above grid but below hero absolute items if any overlap */
   z-index: 20;
   display: flex;
   /* Helps avoid white space below inline elements */
+}
+
+.variant-pink {
+  background-color: var(--color-tertiary-pink);
 }
 
 .marqueeContent {
@@ -23,7 +27,7 @@
 .marqueeItem {
   display: inline-block;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 0 2rem;
   color: var(--color-text-dark);
 }

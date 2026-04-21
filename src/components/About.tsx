@@ -27,10 +27,10 @@ export const About = () => {
           </h2>
           <div className={styles.description}>
             <p>
-              Jeune designeuse franco-allemande de 20 ans et passionnée par les arts divers et variés depuis mon enfance, je m’intéresse actuellement principalement à l’UI/UX.
+              Jeune designeuse <span className="medium">franco-allemande</span> de <span className="medium">20 ans</span> et passionnée par les <span className="medium">arts</span> divers et variés depuis mon enfance, je m’intéresse actuellement principalement à <span className="medium">l’UI/UX</span>.
             </p>
             <p>
-              De nature très curieuse et polyvalente, j’adore découvrir et apprendre de nouvelles techniques créatives.
+              De nature très <span className="medium">curieuse</span> et <span className="medium">polyvalente</span>, j’adore découvrir et apprendre de nouvelles techniques <span className="medium">créatives</span>.
             </p>
           </div>
 

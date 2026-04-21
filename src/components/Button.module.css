@@ -38,12 +38,14 @@
   color: var(--color-text-dark);
 }
 
-.variant-dark {
+
+.variant-black {
   background-color: var(--color-text-dark);
   color: white;
+  border-color: var(--color-text-dark);
 }
 
-.variant-dark path {
+.variant-black path {
   fill: white;
 }
 

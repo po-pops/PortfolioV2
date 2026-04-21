@@ -52,6 +52,7 @@
 .mockupImage {
   width: 100%;
   height: auto;
+  max-height: 500px;
   object-fit: contain;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
 }
@@ -65,7 +66,7 @@
 }
 
 .title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 36px);
   font-weight: 600;
   margin-bottom: var(--spacing-md);
   color: var(--color-text-dark);
@@ -81,24 +82,11 @@
   line-height: 1.5;
 }
 
-.tools {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-.toolIcon {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .meta {
   font-size: 1rem;
   color: var(--color-text-dark);
   line-height: 1.8;
+  font-weight: 300;
 }
 
 .projectButton {
@@ -148,6 +136,10 @@
 
   .description {
     font-size: 1rem;
+  }
+
+  .mockupImage {
+    max-height: 300px;
   }
 }
 

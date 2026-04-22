@@ -521,11 +521,11 @@
 
 @media (max-width: 425px) {
   .artLayout {
-    padding: 2rem 0;
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    padding: 2.5rem 1.5rem;
+    width: 95%;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
   }
 
   .artMeta {
@@ -557,7 +557,8 @@
   }
 
   .stepsGrid {
-    padding: 0 var(--spacing-md);
+    padding: 0 1rem;
+    width: 100%;
   }
 
   .metaCol h4 {
@@ -579,5 +580,11 @@
 
   .mockupSideBySide {
     flex-direction: column;
+  }
+
+  .floatingLabels {
+    font-size: 22vw;
+    line-height: 0.72;
+    opacity: 0.8;
   }
 }

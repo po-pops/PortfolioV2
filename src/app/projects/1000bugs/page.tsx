@@ -119,7 +119,7 @@ L’objectif était de concevoir un outil accessible, ludique et facilement dé
             <Step
               number="4"
               title="Design et accessibilité du jeu"
-              content="Enfin, nous avons travaillé sur le design du jeu afin de rendre les informations claires et compréhensibles. Les pictogrammes, les textes et les visuels ont été pensés pour faciliter la lecture et proposer une expérience à la fois pédagogique, ludique et accessible."
+              content="Les pictogrammes, les textes et les visuels ont été pensés pour être accessible et surtout, comme le jeu a pour but d’être un print and play, il se devait d’être imprimable et compréhensible en noir et blanc."
               index={3}
               backgroundColor="#A9D0E4"
             />

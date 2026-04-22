@@ -65,15 +65,9 @@ export default function LouCantouProject() {
                 alt="Lou Cantou Mockup"
                 width={800}
                 height={600}
-                className={`${styles.mockupImg} ${styles.desktopOnly}`}
+                className={`${styles.mockupImg}`}
               />
-              <Image
-                src="/projects/loucantou/mockup-loucantou_phone.png"
-                alt="Lou Cantou Mockup Mobile"
-                width={800}
-                height={600}
-                className={`${styles.mockupImg} ${styles.mobileOnly}`}
-              />
+  
             </div>
           </div>
         </div>

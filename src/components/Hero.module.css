@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   /* Takes full viewport height exactly */
   display: flex;
@@ -87,8 +87,12 @@
 .sticker {
   position: absolute;
   cursor: grab;
-  /* The rest of the styling (border, padding, backgrounds) is removed 
-     since we want the bare SVG images to show */
+  /* Hardware acceleration to prevent blur on mobile */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  height: auto; /* Ensure aspect ratio is preserved */
+  z-index: 20;
 }
 
 .sticker:active {
@@ -99,28 +103,28 @@
   top: 12%;
   left: 5%;
   width: clamp(120px, 20vw, 260px);
-  transform: rotate(-10deg);
+  transform: rotate(-10deg) translateZ(0);
 }
 
 .stickerTcheen {
   top: 12%;
   right: 5%;
   width: clamp(100px, 25vw, 300px);
-  transform: rotate(5deg);
+  transform: rotate(5deg) translateZ(0);
 }
 
 .stickerLou {
   bottom: 12%;
   left: 5%;
   width: clamp(150px, 22vw, 280px);
-  transform: rotate(-8deg);
+  transform: rotate(-8deg) translateZ(0);
 }
 
 .stickerBugs {
   bottom: 10%;
   right: 5%;
   width: clamp(100px, 18vw, 220px);
-  transform: rotate(15deg);
+  transform: rotate(15deg) translateZ(0);
 }
 
 @media (max-width: 768px) {
@@ -135,32 +139,37 @@
 
   .stickerAki {
     top: 10%;
-    left: -10%;
+    left: 2%;
     width: 140px;
+    transform: rotate(-10deg) translateZ(0);
   }
 
   .stickerTcheen {
     top: 8%;
-    right: -10%;
+    right: 2%;
     width: 120px;
+    transform: rotate(5deg) translateZ(0);
   }
 
   .stickerLou {
     bottom: 15%;
-    left: -5%;
+    left: 2%;
     width: 160px;
+    transform: rotate(-8deg) translateZ(0);
   }
 
   .stickerBugs {
     bottom: 12%;
-    right: -5%;
+    right: 2%;
     width: 130px;
+    transform: rotate(15deg) translateZ(0);
   }
 }
 
 @media (max-width: 480px) {
   .hero {
     height: 90svh;
+    width: 100%;
   }
 
   .titleBase {
@@ -170,12 +179,12 @@
  
   .stickerAki {
     top: 15%;
-    left: 8%;
+    left: 4%;
   }
 
   .stickerTcheen {
     top: 35%;
-    right: 8%;
+    right: 4%;
   }
 
   .stickerLou {

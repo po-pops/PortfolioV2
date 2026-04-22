@@ -10,8 +10,19 @@ import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
 import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
+import { Archivo, Albert_Sans } from 'next/font/google';
 
+const archivo = Archivo({
+  weight: ['500', '700', '900'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
+const albertSans = Albert_Sans({
+  weight: ['300', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function MilleBugsProject() {
   return (
@@ -30,7 +41,7 @@ export default function MilleBugsProject() {
               Revenir à l’accueil</a>
             <h1 className={styles.projectTitle}>Création d'un jeu de cartes</h1>
             <p className={styles.projectDesc}>
-              Dans le cadre d’un projet MMI, nous devions concevoir un produit d’un nouveau genre pour sensibiliser à la biodiversité. Mille Bugs est un jeu de cartes ludique et pédagogique qui permet de découvrir la richesse du vivant tout en s'amusant.
+              La fracture numérique est bien réelle chez les personnes âgées, ce qui les rend exposés face aux cyberattaques comme nous la expliqué Jean-Christophe Fedherbe. C’est pour ça que nous avons créé Milles Bugs, un jeu inspiré du milles borne à destination des personnes âgées, sensibilisant à la cybersécurité.
             </p>
 
             <div className={styles.metaInfo}>
@@ -122,23 +133,29 @@ L’objectif était de concevoir un outil accessible, ludique et facilement dé
           <AnimatedUnderline title="Direction artistique du projet" />
 
           <div className={styles.artLayout}>
-            <div className={styles.swatchesRow}>
-              <div className={styles.swatch} style={{ backgroundColor: '#FFFFFF' }} data-color="#FFFFFF"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#F7F2E2' }} data-color="#F7F2E2"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#78B1F9' }} data-color="#78B1F9"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#E83D5D' }} data-color="#E83D5D"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#9366D0' }} data-color="#9366D0"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#FCEE59' }} data-color="#FCEE59"></div>
-            </div>
-
-            <div className={styles.artMeta}>
-              <div className={styles.metaCol}>
-                <h4>Titres</h4>
-                <p>Archivo Black <br /> Archivo Black <br /> Archivo Black</p>
+            <div className={styles.artTop}>
+              <div className={styles.swatchesRow} style={{ "--swatch-cols": 3 } as React.CSSProperties}>
+                <div className={styles.swatch} style={{ backgroundColor: '#FFFFFF' }} data-color="#FFFFFF"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#F7F2E2' }} data-color="#F7F2E2"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#78B1F9' }} data-color="#78B1F9"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#E83D5D' }} data-color="#E83D5D"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#9366D0' }} data-color="#9366D0"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#FCEE59' }} data-color="#FCEE59"></div>
               </div>
-              <div className={styles.metaCol}>
-                <h4>Corps de texte</h4>
-                <p>Albert Sans <br /> Albert Sans <br /> Albert Sans</p>
+
+              <div className={styles.artMeta}>
+                <div className={styles.metaCol}>
+                  <h4>Titres</h4>
+                  <p className={archivo.className} style={{ fontWeight: 900 }}>Archivo</p>
+                  <p className={archivo.className} style={{ fontWeight: 700 }}>Archivo</p>
+                  <p className={archivo.className} style={{ fontWeight: 500 }}>Archivo</p>
+                </div>
+                <div className={styles.metaCol}>
+                  <h4>Corps de texte</h4>
+                  <p className={albertSans.className} style={{ fontWeight: 700 }}>Albert Sans</p>
+                  <p className={albertSans.className} style={{ fontWeight: 500 }}>Albert Sans</p>
+                  <p className={albertSans.className} style={{ fontWeight: 300 }}>Albert Sans</p>
+                </div>
               </div>
             </div>
           </div>
@@ -150,11 +167,11 @@ L’objectif était de concevoir un outil accessible, ludique et facilement dé
         <div className={styles.container}>
           <div className={styles.mockupSideBySide}>
             <div className={styles.mockupItem}>
-              <Image src="/projects/millebugs/mockups1.png" alt="Mille Bugs Game Board" width={1000} height={800} className={`${styles.fullWidthMockup}`} />
+              <Image src="/projects/millebugs/mockups1.png" alt="Mille Bugs Game Board" width={1000} height={750} className={`${styles.fullWidthMockup}`} />
             </div>
 
             <div className={styles.mockupItem}>
-              <Image src="/projects/millebugs/mockups2.png" alt="Mille Bugs Table Composition" width={1000} height={800} className={`${styles.fullWidthMockup}`} />
+              <Image src="/projects/millebugs/mockups2.png" alt="Mille Bugs Table Composition" width={1000} height={750} className={`${styles.fullWidthMockup}`} />
             </div>
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, une vidéo est disponible de notre intervention à l’Échoppe Seniors au Club de Queyries-Bastide !</p>

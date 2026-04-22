@@ -119,8 +119,19 @@ export default function TcheenProject() {
         <div className={styles.container}>
           <AnimatedUnderline variant="pink" title="Maquette du projet" />
           <div className={styles.mockupTriple}>
-            <Image src="/projects/tcheen/mockups.png" width={1050} height={1050} alt="Tcheen Screen" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
-            <Image src="/projects/tcheen/mockups_phone.png" width={1050} height={1050} alt="Tcheen Screen Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
+            <Image src="/projects/tcheen/mockups.png" width={1050} height={500} alt="Tcheen Screen" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
+            <Image src="/projects/tcheen/mockups_phone.png" width={1050} height={400} alt="Tcheen Screen Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
+          </div>
+
+          <div className={styles.mockupBottom}>
+            <p>
+              Pour les plus curieux, le site est disponible dans son intégralité sur le lien suivant. Vous pourrez y découvrir plus en détail les différentes pages designées.
+            </p>
+            <div className={styles.finalButtonWrapper}>
+              <Button href="https://tcheen.com" icon target="_blank">
+                Accéder au site
+              </Button>
+            </div>
           </div>
         </div>
       </section>

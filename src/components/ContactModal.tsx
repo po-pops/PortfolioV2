@@ -85,6 +85,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   className={styles.form} 
                   onSubmit={handleSubmit}
                   name="contact"
+                  action="/"
+                  method="POST"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                 >

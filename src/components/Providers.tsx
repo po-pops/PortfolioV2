@@ -3,6 +3,7 @@
 import { ContactProvider, useContact } from '@/context/ContactContext';
 import { ContactModal } from './ContactModal';
 import { SmoothScroll } from './SmoothScroll';
+import { ScrollToTop } from './ScrollToTop';
 
 const GlobalModal = () => {
   const { isOpen, closeContactModal } = useContact();
@@ -15,6 +16,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       <SmoothScroll>
         {children}
         <GlobalModal />
+        <ScrollToTop />
       </SmoothScroll>
     </ContactProvider>
   );

@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 // Sub-component for an individual word linked to scroll progress
 const IndividualWord = ({ word, progress, range }: { word: string, progress: MotionValue<number>, range: [number, number] }) => {
   // Pure opacity transition, removing the 'y' movement and blur for a cleaner look
-  const opacity = useTransform(progress, range, [0, 1]);
+  const opacity = useTransform(progress, range, [0.15, 1]);
 
   return (
     <motion.span
@@ -40,7 +40,7 @@ export const WordReveal = ({ text, className }: { text: string, className?: stri
   // Track scroll progress of the container
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.9", "start 0.4"] // Adjust timing for reveal
+    offset: ["start 0.85", "start 0.25"] // Centered timing for premium feel
   });
 
   // Track the maximum scroll progress reached (makes it "once revealed, stay revealed")
@@ -89,8 +89,8 @@ export const WordReveal = ({ text, className }: { text: string, className?: stri
                 return (
                   <motion.span
                     key={`${i}-${j}`}
-                    initial={{ opacity: 0.4 }}
-                    animate={isInView ? { opacity: 1 } : { opacity: 0.4 }}
+                    initial={{ opacity: 0.15 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0.15 }}
                     transition={{
                       duration: 0.6,
                       delay: (currentWordIndex / totalWords) * 0.8, // Staggered delay based on word position
@@ -128,13 +128,14 @@ export const AnimatedUnderline = ({ title, variant = 'yellow' }: { title: string
   return (
     <div className={styles.sectionTitleWrapper} ref={ref}>
       <h2 className={styles.sectionTitle}>
-        {title}
-        <motion.div
-          className={clsx(styles.underline, variant === 'pink' && styles.underlinePink)}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
+        <motion.span
+          className={clsx(styles.underlineText, variant === 'pink' && styles.underlineTextPink)}
+          initial={{ backgroundSize: "0% 5px" }}
+          animate={isInView ? { backgroundSize: "100% 5px" } : { backgroundSize: "0% 5px" }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {title}
+        </motion.span>
       </h2>
     </div>
   );

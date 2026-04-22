@@ -7,22 +7,20 @@
 .sectionTitle {
   font-size: clamp(1.7rem, 5vw, 2.2rem);
   font-weight: 600;
-  position: relative;
-  display: inline-block;
+  text-align: center;
 }
 
-.underline {
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 4px;
-  background-color: var(--color-primary-yellow);
-  transform-origin: left;
+.underlineText {
+  background-image: linear-gradient(var(--color-primary-yellow), var(--color-primary-yellow));
+  background-size: 0% 2px;
+  background-position: 0% 95%;
+  background-repeat: no-repeat;
+  padding-bottom: 8px;
+  display: inline;
 }
 
-.underlinePink {
-  background-color: var(--color-tertiary-pink);
+.underlineTextPink {
+  background-image: linear-gradient(var(--color-tertiary-pink), var(--color-tertiary-pink));
 }
 
 .stepCard {
@@ -37,7 +35,12 @@
 
 @media (max-width: 1024px) {
   .stepCard {
+    align-items: flex-start;
     flex-direction: column;
+    background: transparent;
+    border: none;
+    padding: 1.5rem 0;
+    border-radius: 0;
   }
 }
 

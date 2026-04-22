@@ -133,11 +133,6 @@
     font-size: 1.2rem;
   }
 
-  .sticker {
-    transform: scale(0.5) !important;
-    /* Make stickers smaller on mobile */
-  }
-
   .stickerAki {
     top: 10%;
     left: -10%;
@@ -172,10 +167,7 @@
     font-size: clamp(5rem, 20vw, 9rem);
   }
 
-  .sticker {
-    transform: scale(1) !important;
-  }
-
+ 
   .stickerAki {
     top: 15%;
     left: 8%;

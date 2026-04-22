@@ -79,7 +79,7 @@
 }
 
 .projectTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 40px);
   margin-bottom: var(--spacing-md);
   font-weight: 600;
 }
@@ -179,16 +179,47 @@
 }
 
 .artLayout {
-  width: 100%;
-  max-width: 800px;
+  width: fit-content;
+  max-width: 750px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  gap: var(--spacing-xl);
+  flex-direction: column;
+  gap: 3.5rem;
   background: white;
   border: 1px solid var(--color-border);
-  padding: 3rem;
+  padding: 2.5rem 3.5rem;
   border-radius: 40px;
+}
+
+.artTop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 60px;
+}
+
+.artBottom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 40px;
+}
+
+.logoCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logoCol h4 {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .swatchesRow {
@@ -245,15 +276,18 @@
 }
 
 .metaCol h4 {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: var(--color-text-dark);
   margin-bottom: 0.5rem;
   font-weight: 500;
+  white-space: nowrap;
+  width: fit-content;
 }
 
 .metaCol p {
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* --- LOGO GALLERY --- */
@@ -332,15 +366,20 @@
 /* --- MAQUETTE SECTION --- */
 .maquetteSection {
   padding: var(--spacing-xxl) 0;
-  padding-bottom: 256px;
+  padding-bottom: 120px;
+  /* Reduced from 256px */
+}
+
+.maquetteSection :global(.sectionTitleWrapper) {
+  margin-bottom: 2rem !important;
 }
 
 .mockupPhone {
-  width: 80vw;
-  max-width: 900px;
-  height: auto;
+  width: 100%;
+  max-width: 1050px;
   display: block;
   margin: 0 auto;
+  object-fit: contain;
 }
 
 .mockupVerticalStack {
@@ -367,7 +406,7 @@
 
 .fullWidthMockup {
   width: 100%;
-  max-width: 900px;
+  max-width: 1050px;
   height: auto;
   border-radius: 24px;
 }
@@ -386,7 +425,8 @@
 }
 
 .mockupBottom {
-  margin-top: var(--spacing-xl);
+  margin-top: 2rem;
+  /* Reduced from var(--spacing-xl) */
   margin-left: auto;
   margin-right: auto;
   font-size: 1.1rem;
@@ -450,15 +490,23 @@
 
   .artLayout {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
     gap: 3rem;
     width: 95%;
   }
 
-  .artMeta {
-    gap: 4rem;
+  .artTop,
+  .artBottom {
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 3rem;
+  }
+
+  .artMeta {
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   .swatch {
@@ -469,7 +517,27 @@
   .mockupBottom {
     margin-top: 0;
   }
+}
 
+@media (max-width: 425px) {
+  .artLayout {
+    padding: 2rem 0;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .artMeta {
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .swatch {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -511,6 +579,5 @@
 
   .mockupSideBySide {
     flex-direction: column;
-    gap: 4rem;
   }
 }

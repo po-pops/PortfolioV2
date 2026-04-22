@@ -10,7 +10,19 @@ import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
 import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
+import { Rubik, Bricolage_Grotesque } from 'next/font/google';
 
+const rubik = Rubik({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const bricolage = Bricolage_Grotesque({
+  weight: ['300', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function AkiProject() {
   return (
@@ -118,23 +130,29 @@ export default function AkiProject() {
           <AnimatedUnderline title="Direction artistique du projet" />
 
           <div className={styles.artLayout}>
-            <div className={styles.swatchesRow}>
-              <div className={styles.swatch} style={{ backgroundColor: '#151515' }} data-color="#151515"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#FFF' }} data-color="#FFF"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#A9D0E4' }} data-color="#A9D0E4"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#F5A3E0' }} data-color="#F5A3E0"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#FF7442' }} data-color="#FF7442"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#8BC062' }} data-color="#8BC062"></div>
-            </div>
-
-            <div className={styles.artMeta}>
-              <div className={styles.metaCol}>
-                <h4>Titres</h4>
-                <p>Rubik <br /> Rubik <br /> Rubik</p>
+            <div className={styles.artTop}>
+              <div className={styles.swatchesRow} style={{ "--swatch-cols": 3 } as React.CSSProperties}>
+                <div className={styles.swatch} style={{ backgroundColor: '#151515' }} data-color="#151515"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#FFF' }} data-color="#FFF"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#A9D0E4' }} data-color="#A9D0E4"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#F5A3E0' }} data-color="#F5A3E0"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#FF7442' }} data-color="#FF7442"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#8BC062' }} data-color="#8BC062"></div>
               </div>
-              <div className={styles.metaCol}>
-                <h4>Corps de texte</h4>
-                <p>Bricolage Grotesque <br />Bricolage Grotesque <br /> Bricolage Grotesque</p>
+
+              <div className={styles.artMeta}>
+                <div className={styles.metaCol}>
+                  <h4>Titres</h4>
+                  <p className={rubik.className} style={{ fontWeight: 700 }}>Rubik</p>
+                  <p className={rubik.className} style={{ fontWeight: 500 }}>Rubik</p>
+                  <p className={rubik.className} style={{ fontWeight: 400 }}>Rubik</p>
+                </div>
+                <div className={styles.metaCol}>
+                  <h4>Corps de texte</h4>
+                  <p className={bricolage.className} style={{ fontWeight: 700 }}>Bricolage Grotesque</p>
+                  <p className={bricolage.className} style={{ fontWeight: 500 }}>Bricolage Grotesque</p>
+                  <p className={bricolage.className} style={{ fontWeight: 300 }}>Bricolage Grotesque</p>
+                </div>
               </div>
             </div>
           </div>
@@ -152,8 +170,8 @@ export default function AkiProject() {
         <div className={styles.container}>
           <AnimatedUnderline title="Maquette du projet" />
           <div className={styles.mockupTriple}>
-            <Image src="/projects/aki/mockups.png" width={650} height={650} alt="Aki Screen 1" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
-            <Image src="/projects/aki/mockups_phone.png" width={650} height={650} alt="Aki Screen 1 Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
+            <Image src="/projects/aki/mockups.png" width={950} height={600} alt="Aki Screen 1" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
+            <Image src="/projects/aki/mockups_phone.png" width={650} height={550} alt="Aki Screen 1 Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, le projet est disponible dans son intégralité sur Figma. Vous pourrez y découvrir plus en détail les maquettes, les composants et la structure complète de l’interface.</p>
 

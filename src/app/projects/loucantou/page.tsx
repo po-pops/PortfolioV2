@@ -10,7 +10,19 @@ import { Marquee } from '@/components/Marquee';
 import { Button } from '@/components/Button';
 import { AnimatedUnderline, FadeText, Step, WordReveal } from '@/components/ProjectComponents';
 import styles from '../projects.module.css';
+import { Borel, M_PLUS_Rounded_1c } from 'next/font/google';
 
+const borel = Borel({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const mPlusRounded = M_PLUS_Rounded_1c({
+  weight: ['400', '500', '900'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 
 export default function LouCantouProject() {
@@ -127,37 +139,38 @@ export default function LouCantouProject() {
           <AnimatedUnderline title="Direction artistique du projet" />
 
           <div className={styles.artLayout}>
-            <div className={styles.swatchesRow} style={{ "--swatch-cols": 2 } as React.CSSProperties}>
-              <div className={styles.swatch} style={{ backgroundColor: '#111' }} data-color="#111"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#f5f5f5' }} data-color="#f5f5f5"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#4a6741' }} data-color="#4a6741"></div>
-              <div className={styles.swatch} style={{ backgroundColor: '#f9a825' }} data-color="#f9a825"></div>
+            {/* Top Row: Colors and Fonts */}
+            <div className={styles.artTop}>
+              <div className={styles.swatchesRow} style={{ "--swatch-cols": 2 } as React.CSSProperties}>
+                <div className={styles.swatch} style={{ backgroundColor: '#111' }} data-color="#111"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#f5f5f5' }} data-color="#f5f5f5"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#4a6741' }} data-color="#4a6741"></div>
+                <div className={styles.swatch} style={{ backgroundColor: '#f9a825' }} data-color="#f9a825"></div>
+              </div>
+
+              <div className={styles.artMeta}>
+                <div className={styles.metaCol}>
+                  <h4>Titres</h4>
+                  <p className={borel.className}>Borel</p>
+                </div>
+                <div className={styles.metaCol}>
+                  <h4>Corps de texte</h4>
+                  <p className={mPlusRounded.className} style={{ fontWeight: 400 }}>Rounded Mplus 1c</p>
+                  <p className={mPlusRounded.className} style={{ fontWeight: 500 }}>Rounded Mplus 1c</p>
+                  <p className={mPlusRounded.className} style={{ fontWeight: 900 }}>Rounded Mplus 1c</p>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.artMeta}>
-              <div className={styles.metaCol}>
-                <h4>Titres</h4>
-                <p>Rubik</p>
+            {/* Bottom Row: Logos */}
+            <div className={styles.artBottom}>
+              <div className={styles.logoCol}>
+                <h4>Logo</h4>
+                <Image src="/projects/loucantou/logo.svg" width={220} height={120} alt="Logo Lou Cantou" style={{ height: 'auto', display: 'block' }} />
               </div>
-              <div className={styles.metaCol}>
-                <h4>Corps de texte</h4>
-                <p>Rounded Mplus 1c</p>
-              </div>
-            </div>
-          </div>
-
-          {/* LOGO GALLERY */}
-          <div className={styles.logoGallery}>
-            <div className={styles.logoColumn}>
-              <h4>Logo</h4>
-              <div className={styles.logoImageWrapper}>
-                <Image src="/projects/loucantou/logo.svg" width={300} height={200} alt="Logo Lou Cantou" className={styles.logoImg} style={{ height: 'auto' }} />
-              </div>
-            </div>
-            <div className={styles.logoColumn}>
-              <h4>Variante logo</h4>
-              <div className={styles.logoImageWrapper}>
-                <Image src="/projects/loucantou/logo2.svg" width={200} height={200} alt="Variante Logo Lou Cantou" className={styles.logoImg} style={{ height: 'auto' }} />
+              <div className={styles.logoCol}>
+                <h4>Variante logo</h4>
+                <Image src="/projects/loucantou/logo2.svg" width={180} height={180} alt="Variante Logo" style={{ height: 'auto', display: 'block' }} />
               </div>
             </div>
           </div>
@@ -191,7 +204,7 @@ export default function LouCantouProject() {
             <Image
               src="/projects/loucantou/mockups2.png"
               width={1200}
-              height={800}
+              height={600}
               alt="Maquettes Lou Cantou"
               priority
               className={styles.desktopOnly}

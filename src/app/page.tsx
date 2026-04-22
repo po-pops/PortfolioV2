@@ -7,26 +7,17 @@ import { About } from '@/components/About';
 import { Projects } from '@/components/Projects';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-import { ContactModal } from '@/components/ContactModal';
-import { useState } from 'react';
 
 export default function Home() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-
-  const openModal = () => setIsContactModalOpen(true);
-  const closeModal = () => setIsContactModalOpen(false);
-
   return (
     <main>
-      <Header onContactClick={openModal} />
+      <Header />
       <Hero />
       <Marquee />
       <About />
       <Projects />
-      <Contact onContactClick={openModal} />
+      <Contact />
       <Footer />
-      
-      <ContactModal isOpen={isContactModalOpen} onClose={closeModal} />
     </main>
   );
 }

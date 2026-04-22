@@ -15,7 +15,7 @@ const projectsData = [
     year: "2026",
     color: "#eab8d1", // Pink
     buttonVariant: "primary",
-    image: "/mockup-aki-hp.webp",
+    image: "/projects/aki/hero.png",
   },
   {
     id: "tcheen",
@@ -25,7 +25,7 @@ const projectsData = [
     year: "2026",
     color: "#f5e751", // Yellow
     buttonVariant: "black",
-    image: "/mockup-tcheen-hp.webp",
+    image: "/projects/tcheen/hero.png",
   },
   {
     id: "loucantou",
@@ -35,7 +35,7 @@ const projectsData = [
     year: "2025",
     color: "#a3deb3", // Green
     buttonVariant: "primary",
-    image: "/mockup-loucantou-hp.webp",
+    image: "/projects/loucantou/hero.png",
   },
   {
     id: "1000bugs",
@@ -45,7 +45,7 @@ const projectsData = [
     year: "2025",
     color: "#A9D0E4", // Blue
     buttonVariant: "primary",
-    image: "/mockup-millebugs-hp.webp",
+    image: "/projects/millebugs/hero.png",
   }
 ];
 

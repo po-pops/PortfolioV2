@@ -112,6 +112,11 @@ a {
   text-decoration: none;
 }
 
+::selection {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-text-dark);
+}
+
 /* Typography Base */
 h1,
 h2,

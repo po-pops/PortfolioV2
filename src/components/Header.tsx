@@ -4,12 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from './Button';
 import styles from './Header.module.css';
+import { useContact } from '@/context/ContactContext';
 
-interface HeaderProps {
-  onContactClick?: () => void;
-}
-
-export const Header = ({ onContactClick }: HeaderProps) => {
+export const Header = () => {
+  const { openContactModal } = useContact();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -31,7 +29,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
         </nav>
         
         <div className={styles.desktopCta}>
-          <Button variant="primary" icon onClick={onContactClick}>
+          <Button variant="primary" icon onClick={openContactModal}>
             Créons ensemble
           </Button>
         </div>
@@ -98,7 +96,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
             className={styles.sidebarButton}
             onClick={() => {
               toggleMenu();
-              onContactClick?.();
+              openContactModal();
             }}
           >
             Créons ensemble

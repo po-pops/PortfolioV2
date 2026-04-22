@@ -1,22 +1,19 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring, MotionValue, useMotionValue } from 'framer-motion';
 import styles from './ProjectComponents.module.css';
 import { clsx } from 'clsx';
 
 // Sub-component for an individual word linked to scroll progress
 const IndividualWord = ({ word, progress, range }: { word: string, progress: MotionValue<number>, range: [number, number] }) => {
+  // Pure opacity transition, removing the 'y' movement and blur for a cleaner look
   const opacity = useTransform(progress, range, [0, 1]);
-  const y = useTransform(progress, range, [20, 0]);
-  const blur = useTransform(progress, range, [4, 0]);
 
   return (
-    <motion.span 
-      style={{ 
-        opacity, 
-        y, 
-        filter: blur.get() === 0 ? 'none' : `blur(${blur}px)`,
+    <motion.span
+      style={{
+        opacity,
         marginRight: "0.25em",
         display: "inline-block"
       }}
@@ -26,27 +23,46 @@ const IndividualWord = ({ word, progress, range }: { word: string, progress: Mot
   );
 };
 
-// Component for word-by-word reveal linked to scroll
+// Component for word-by-word reveal linked to scroll progress (One-Way)
 export const WordReveal = ({ text, className }: { text: string, className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+  const [isMobile, setIsMobile] = React.useState(false);
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+
+  // Detection for different behavior on PC vs Mobile
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Track scroll progress of the container
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.9", "start 0.3"] // Starts revealing at 90% of viewport, finishes at 30%
+    offset: ["start 0.9", "start 0.4"] // Adjust timing for reveal
   });
 
-  // Smooth the scroll progress for a more "premium" feel
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
+  // Track the maximum scroll progress reached (makes it "once revealed, stay revealed")
+  const maxProgress = useMotionValue<number>(0);
+  React.useEffect(() => {
+    return scrollYProgress.onChange(v => {
+      if (v > maxProgress.get()) {
+        maxProgress.set(v);
+      }
+    });
+  }, [scrollYProgress, maxProgress]);
+
+  // Smooth the scroll progress for a premium feel
+  const smoothProgress = useSpring(maxProgress, {
+    stiffness: 80,
     damping: 30,
     restDelta: 0.001
   });
 
-  // Split logic that preserves newlines
   const lines = text.split("\n");
   const totalWords = text.split(/\s+/).filter(w => w.length > 0).length;
-  let currentWordIndex = 0;
+  let wordCounter = 0;
 
   return (
     <motion.div
@@ -61,17 +77,39 @@ export const WordReveal = ({ text, className }: { text: string, className?: stri
             {i > 0 && <br />}
             {words.map((word, j) => {
               if (word === "") return null;
-              
+
+              const currentWordIndex = wordCounter;
               const start = currentWordIndex / totalWords;
               const end = (currentWordIndex + 1) / totalWords;
-              currentWordIndex++;
+              wordCounter++;
 
+              // On mobile, we use a simple staggered fade-in triggered by InView
+              // since scroll-linked animations can be jittery on touch devices.
+              if (isMobile) {
+                return (
+                  <motion.span
+                    key={`${i}-${j}`}
+                    initial={{ opacity: 0.4 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0.4 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: (currentWordIndex / totalWords) * 0.8, // Staggered delay based on word position
+                      ease: "easeOut"
+                    }}
+                    style={{ marginRight: "0.25em", display: "inline-block" }}
+                  >
+                    {word}
+                  </motion.span>
+                );
+              }
+
+              // On PC, we use the requested scroll-linked opacity reveal
               return (
-                <IndividualWord 
-                  key={`${i}-${j}`} 
-                  word={word} 
-                  progress={smoothProgress} 
-                  range={[start, end]} 
+                <IndividualWord
+                  key={`${i}-${j}`}
+                  word={word}
+                  progress={smoothProgress}
+                  range={[start, end]}
                 />
               );
             })}
@@ -117,12 +155,12 @@ export const FadeText = ({ children }: { children: React.ReactNode }) => {
 };
 
 // Component for the sliding steps
-export const Step = ({ number, title, content, index, backgroundColor }: { 
-  number: string, 
-  title: string, 
-  content: string, 
+export const Step = ({ number, title, content, index, backgroundColor }: {
+  number: string,
+  title: string,
+  content: string,
   index: number,
-  backgroundColor?: string 
+  backgroundColor?: string
 }) => {
   return (
     <motion.div
@@ -132,8 +170,8 @@ export const Step = ({ number, title, content, index, backgroundColor }: {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      <div 
-        className={styles.stepNumber} 
+      <div
+        className={styles.stepNumber}
         style={backgroundColor ? { backgroundColor } : undefined}
       >
         {number}

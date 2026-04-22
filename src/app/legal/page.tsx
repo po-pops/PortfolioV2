@@ -108,6 +108,7 @@ export default function LegalPage() {
             </div>
             <div className={styles.legalBlock}>
               <h2 style={{ marginTop: '2rem' }}>Crédits</h2>
+              <p>Site designé par Pauline Yvelin</p>
               <p>Site développé par <a href="https://thomas-riquier.viturna.fr/" target="_blank" rel="noopener noreferrer">Thomas Riquier</a></p>
             </div>
 

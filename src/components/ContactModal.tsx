@@ -24,10 +24,26 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     };
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted");
+    setStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      setStatus('success');
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -58,34 +74,62 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 </div>
               </div>
 
-              <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.row}>
-                  <div className={styles.field}>
-                    <label htmlFor="firstname">Prénom</label>
-                    <input type="text" id="firstname" placeholder="Janja" className={styles.input} />
+              {status === 'success' ? (
+                <div className={styles.successMessage}>
+                  <h3>Merci !</h3>
+                  <p>Votre message a bien été envoyé. Je reviens vers vous très vite.</p>
+                  <Button onClick={onClose} variant="primary">Fermer</Button>
+                </div>
+              ) : (
+                <form 
+                  className={styles.form} 
+                  onSubmit={handleSubmit}
+                  name="contact"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p style={{ display: 'none' }}>
+                    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                  </p>
+
+                  <div className={styles.row}>
+                    <div className={styles.field}>
+                      <label htmlFor="firstname">Prénom</label>
+                      <input type="text" id="firstname" name="firstname" placeholder="Janja" className={styles.input} required />
+                    </div>
+                    <div className={styles.field}>
+                      <label htmlFor="lastname">Nom</label>
+                      <input type="text" id="lastname" name="lastname" placeholder="Garnbret" className={styles.input} required />
+                    </div>
                   </div>
+
                   <div className={styles.field}>
-                    <label htmlFor="lastname">Nom</label>
-                    <input type="text" id="lastname" placeholder="Garnbret" className={styles.input} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="janja.garnbret@arkose.com" className={styles.input} required />
                   </div>
-                </div>
 
-                <div className={styles.field}>
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="janja.garnbret@arkose.com" className={styles.input} />
-                </div>
+                  <div className={styles.field}>
+                    <label htmlFor="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Hello..." className={styles.textarea} required></textarea>
+                  </div>
 
-                <div className={styles.field}>
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" placeholder="Hello..." className={styles.textarea}></textarea>
-                </div>
-
-                <div className={styles.submitWrapper}>
-                  <Button type="submit" variant="primary" icon className={styles.submitButton}>
-                    Envoyer le message
-                  </Button>
-                </div>
-              </form>
+                  <div className={styles.submitWrapper}>
+                    <Button 
+                      type="submit" 
+                      variant="primary" 
+                      icon 
+                      className={styles.submitButton}
+                      disabled={status === 'submitting'}
+                    >
+                      {status === 'submitting' ? 'Envoi...' : 'Envoyer le message'}
+                    </Button>
+                  </div>
+                  {status === 'error' && (
+                    <p className={styles.errorMessage}>Une erreur est survenue, veuillez réessayer.</p>
+                  )}
+                </form>
+              )}
             </div>
           </motion.div>
         </div>

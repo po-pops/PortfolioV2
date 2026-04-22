@@ -2,12 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './Contact.module.css';
 import { Button } from './Button';
+import { useContact } from '@/context/ContactContext';
 
-interface ContactProps {
-  onContactClick?: () => void;
-}
-
-export const Contact = ({ onContactClick }: ContactProps) => {
+export const Contact = () => {
+  const { openContactModal } = useContact();
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
@@ -26,7 +24,7 @@ export const Contact = ({ onContactClick }: ContactProps) => {
             </p>
           </div>
 
-          <Button variant="primary" icon className={styles.contactButton} onClick={onContactClick}>
+          <Button variant="primary" icon className={styles.contactButton} onClick={openContactModal}>
             Créons ensemble
           </Button>
         </div>

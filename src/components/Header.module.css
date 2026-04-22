@@ -109,7 +109,7 @@
   /* Hidden off-screen by default */
   width: 85%;
   max-width: 420px;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--color-secondary-blue);
   border-top-left-radius: 80px;
   border-bottom-left-radius: 80px;

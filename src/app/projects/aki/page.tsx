@@ -41,35 +41,35 @@ export default function AkiProject() {
               Tester l’expérience
             </Button>
           </div>
-
           <div className={styles.heroMockup}>
             <div className={styles.mockupWrapper}>
               <div className={styles.floatingLabels}>
-                AKI’ TU <br /> PENSES <br /> AKI’ TU <br /> PENSES
+                <span>AKI’ TU <br /> PENSES</span><br /><span>AKI’ TU <br /> PENSES</span>
               </div>
               <Image
-                src="/mockup-aki-hp.webp"
+                src="/projects/aki/hero.png"
                 alt="Aki Mockup"
-                width={400}
-                height={800}
-                className={styles.mockupImg}
+                width={800}
+                height={600}
+                className={`${styles.mockupImg}`}
               />
             </div>
           </div>
         </div>
       </section>
 
-      <Marquee items={["UX/UI Design", "Direction artistique", "UX/UI Design", "Direction artistique", "UX/UI Design", "Direction artistique",]} />
+      <Marquee items={["UX/UI Design", "Direction artistique", "Illustration", "UX/UI Design", "Direction artistique", "Illustration", "UX/UI Design", "Direction artistique", "Illustration"]} />
 
       {/* BESOIN SECTION */}
       <section className={`${styles.besoinSection} bg-grid`}>
         <div className={styles.container}>
           <AnimatedUnderline title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <WordReveal 
+            <WordReveal
               className={styles.besoinParagraph}
               text={`Dans le cadre de la Bacchanight, nocturne étudiante organisée par le Musée des Beaux-Arts de Bordeaux, notre mission était de concevoir une expérience interactive capable de dynamiser la visite du musée et de capter un public jeune.
-Le musée souhaitait offrir une médiation innovante, capable de transformer la posture traditionnelle du visiteur souvent passive en une expérience participative. Il fallait créer un outil à la fois pédagogique, ludique et adapté aux usages numériques des étudiants.`}
+
+                Le musée souhaitait offrir une médiation innovante, capable de transformer la posture traditionnelle du visiteur souvent passive en une expérience participative. Il fallait créer un outil à la fois pédagogique, ludique et adapté aux usages numériques des étudiants.`}
             />
           </div>
         </div>
@@ -139,7 +139,10 @@ Le musée souhaitait offrir une médiation innovante, capable de transformer la 
             </div>
           </div>
           <div className={styles.stickersGallery}>
-            <Image src="/projects/aki/stickers.png" alt="Aki Stickers" width={650} height={350} className={styles.mainSticker} />
+            <Image src="/projects/aki/stickers.png" alt="Aki Stickers" width={750} height={350} className={styles.mainSticker} />
+          </div>
+          <div className={styles.stickersGallery}>
+            <Image src="/projects/aki/mockups2.png" alt="Affiche" width={750} height={350} className={styles.mainSticker} />
           </div>
         </div>
       </section>
@@ -149,7 +152,8 @@ Le musée souhaitait offrir une médiation innovante, capable de transformer la 
         <div className={styles.container}>
           <AnimatedUnderline title="Maquette du projet" />
           <div className={styles.mockupTriple}>
-            <Image src="/projects/aki/mockups.png" width={650} height={650} alt="Aki Screen 1" className={styles.mockupPhone} />
+            <Image src="/projects/aki/mockups.png" width={650} height={650} alt="Aki Screen 1" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
+            <Image src="/projects/aki/mockups_phone.png" width={650} height={650} alt="Aki Screen 1 Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, le projet est disponible dans son intégralité sur Figma. Vous pourrez y découvrir plus en détail les maquettes, les composants et la structure complète de l’interface.</p>
 

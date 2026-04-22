@@ -48,12 +48,13 @@ export default function TcheenProject() {
                 TCHEEN <br /> TCHEEN <br /> TCHEEN <br /> TCHEEN
               </div>
               <Image
-                src="/mockup-tcheen-hp.webp"
+                src="/projects/tcheen/hero.png"
                 alt="Tcheen Mockup"
                 width={800}
                 height={600}
-                className={styles.mockupImg}
+                className={`${styles.mockupImg} `}
               />
+
             </div>
           </div>
         </div>
@@ -69,7 +70,8 @@ export default function TcheenProject() {
             <WordReveal
               className={styles.besoinParagraph}
               text={`Suite à une évolution de son positionnement, Tcheen souhaitait moderniser son site web afin de mieux refléter sa nouvelle stratégie et toucher une cible plus professionnelle.
-L’objectif était également de concevoir une expérience digitale cohérente avec leur branding, capable de renforcer leur crédibilité.`}
+
+                L’objectif était également de concevoir une expérience digitale cohérente avec leur branding, capable de renforcer leur crédibilité.`}
             />
           </div>
         </div>
@@ -115,9 +117,10 @@ L’objectif était également de concevoir une expérience digitale cohérente 
       {/* MAQUETTE SECTION */}
       <section className={`${styles.maquetteSection} bg-grid`}>
         <div className={styles.container}>
-          <AnimatedUnderline  variant="pink" title="Maquette du projet" />
+          <AnimatedUnderline variant="pink" title="Maquette du projet" />
           <div className={styles.mockupTriple}>
-            <Image src="/projects/tcheen/mockups.png" width={1050} height={1050} alt="Tcheen Screen" className={styles.mockupPhone} />
+            <Image src="/projects/tcheen/mockups.png" width={1050} height={1050} alt="Tcheen Screen" className={`${styles.mockupPhone} ${styles.desktopOnly}`} />
+            <Image src="/projects/tcheen/mockups_phone.png" width={1050} height={1050} alt="Tcheen Screen Mobile" className={`${styles.mockupPhone} ${styles.mobileOnly}`} />
           </div>
         </div>
       </section>

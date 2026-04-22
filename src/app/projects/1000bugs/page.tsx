@@ -49,28 +49,30 @@ export default function MilleBugsProject() {
                 MILLE <br /> BUGS <br /> MILLE <br /> BUGS
               </div>
               <Image
-                src="/mockup-millebugs-hp.webp"
+                src="/projects/millebugs/hero.png"
                 alt="Mille Bugs Mockup"
                 width={800}
                 height={600}
-                className={styles.mockupImg}
+                className={`${styles.mockupImg}`}
               />
             </div>
           </div>
         </div>
       </section>
 
-      <Marquee items={["Illustration", "Mille Bugs", "Jeu de cartes", "Biodiversité"]} />
+      <Marquee items={["Direction artistique", "Illustration", "Print", "Direction artistique", "Illustration", "Print"]} />
 
       {/* BESOIN SECTION */}
       <section className={`${styles.besoinSection} bg-grid`}>
         <div className={styles.container}>
           <AnimatedUnderline title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <WordReveal 
+            <WordReveal
               className={styles.besoinParagraph}
               text={`Dans le cadre d’un workshop, notre mission était de concevoir un projet réalisable, utile et original avec les enjeux du numérique.
+
 Le projet a été proposé par la gendarmerie de Bordeaux, qui souhaitait répondre à une problématique concrète : la fracture numérique chez les seniors. Moins familiarisées avec les outils digitaux, ces populations sont souvent plus exposées aux risques de cybermalveillance (phishing, arnaques en ligne, e-mails frauduleux…).
+
 L’objectif était de concevoir un outil accessible, ludique et facilement déployable par des associations, collectivités ou structures accompagnant les personnes âgées, tout en répondant au besoin de l’utilisateur : comprendre les dangers du numérique de manière simple et concrète.`}
             />
           </div>
@@ -146,9 +148,14 @@ L’objectif était de concevoir un outil accessible, ludique et facilement dé
       {/* MAQUETTE SECTION */}
       <section className={`${styles.maquetteSection} bg-grid`}>
         <div className={styles.container}>
-          <div className={styles.mockupVerticalStack}>
-            <Image src="/projects/millebugs/mockups1.png" alt="Mille Bugs Game Board" width={1000} height={800} className={styles.fullWidthMockup} />
-            <Image src="/projects/millebugs/mockups2.png" alt="Mille Bugs Table Composition" width={1000} height={800} className={styles.fullWidthMockup} />
+          <div className={styles.mockupSideBySide}>
+            <div className={styles.mockupItem}>
+              <Image src="/projects/millebugs/mockups1.png" alt="Mille Bugs Game Board" width={1000} height={800} className={`${styles.fullWidthMockup}`} />
+            </div>
+
+            <div className={styles.mockupItem}>
+              <Image src="/projects/millebugs/mockups2.png" alt="Mille Bugs Table Composition" width={1000} height={800} className={`${styles.fullWidthMockup}`} />
+            </div>
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, une vidéo est disponible de notre intervention à l’Échoppe Seniors au Club de Queyries-Bastide !</p>
 

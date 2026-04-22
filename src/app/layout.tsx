@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import { SmoothScroll } from '@/components/SmoothScroll';
+import { Providers } from '@/components/Providers';
 import './globals.css';
 
 const poppins = Poppins({
@@ -64,9 +64,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Pauline Yvelin" />
       </head>
       <body>
-        <SmoothScroll>
+        <Providers>
           {children}
-        </SmoothScroll>
+        </Providers>
       </body>
     </html>
   );

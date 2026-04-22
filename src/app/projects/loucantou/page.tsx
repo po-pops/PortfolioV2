@@ -49,28 +49,36 @@ export default function LouCantouProject() {
                 LOU <br /> CANTOU <br /> LOU <br /> CANTOU
               </div>
               <Image
-                src="/mockup-loucantou-hp.webp"
+                src="/projects/loucantou/hero.png"
                 alt="Lou Cantou Mockup"
                 width={800}
                 height={600}
-                className={styles.mockupImg}
+                className={`${styles.mockupImg} ${styles.desktopOnly}`}
+              />
+              <Image
+                src="/projects/loucantou/mockup-loucantou_phone.png"
+                alt="Lou Cantou Mockup Mobile"
+                width={800}
+                height={600}
+                className={`${styles.mockupImg} ${styles.mobileOnly}`}
               />
             </div>
           </div>
         </div>
       </section>
 
-      <Marquee items={["Branding", "•", "UI/UX Design", "•", "Lou Cantou", "•", "Web Design", "•"]} />
+      <Marquee items={["Direction Artistique", "UI/UX Design", "Direction Artistique", "UI/UX Design",]} />
 
       {/* BESOIN SECTION */}
       <section className={`${styles.besoinSection} bg-grid`}>
         <div className={styles.container}>
           <AnimatedUnderline title="Besoin du client" />
           <div className={styles.besoinTextContainer}>
-            <WordReveal 
+            <WordReveal
               className={styles.besoinParagraph}
               text={`Dans le cadre de la modernisation de l'offre de chambres d'hôtes, l'objectif était de repenser l'image de l'établissement et de créer une présence en ligne plus actuelle et cohérente.
-Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôtes tout en offrant une interface simple et agréable à parcourir pour les futurs clients.`}
+
+                Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôtes tout en offrant une interface simple et agréable à parcourir pour les futurs clients.`}
             />
           </div>
         </div>
@@ -119,7 +127,7 @@ Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôt
           <AnimatedUnderline title="Direction artistique du projet" />
 
           <div className={styles.artLayout}>
-            <div className={styles.swatchesRow}>
+            <div className={styles.swatchesRow} style={{ "--swatch-cols": 2 } as React.CSSProperties}>
               <div className={styles.swatch} style={{ backgroundColor: '#111' }} data-color="#111"></div>
               <div className={styles.swatch} style={{ backgroundColor: '#f5f5f5' }} data-color="#f5f5f5"></div>
               <div className={styles.swatch} style={{ backgroundColor: '#4a6741' }} data-color="#4a6741"></div>
@@ -143,13 +151,13 @@ Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôt
             <div className={styles.logoColumn}>
               <h4>Logo</h4>
               <div className={styles.logoImageWrapper}>
-                <Image src="/projects/loucantou/logo.svg" width={300} height={200} alt="Logo Lou Cantou" className={styles.logoImg} />
+                <Image src="/projects/loucantou/logo.svg" width={300} height={200} alt="Logo Lou Cantou" className={styles.logoImg} style={{ height: 'auto' }} />
               </div>
             </div>
             <div className={styles.logoColumn}>
               <h4>Variante logo</h4>
               <div className={styles.logoImageWrapper}>
-                <Image src="/projects/loucantou/logo2.svg" width={200} height={200} alt="Variante Logo Lou Cantou" className={styles.logoImg} />
+                <Image src="/projects/loucantou/logo2.svg" width={200} height={200} alt="Variante Logo Lou Cantou" className={styles.logoImg} style={{ height: 'auto' }} />
               </div>
             </div>
           </div>
@@ -161,6 +169,14 @@ Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôt
               height={800}
               alt="Maquettes Lou Cantou"
               priority
+              className={styles.desktopOnly}
+            />
+            <Image
+              src="/projects/loucantou/mockups1_phone.png"
+              width={1200}
+              height={800}
+              alt="Maquettes Lou Cantou Mobile"
+              className={styles.mobileOnly}
             />
           </div>
         </div>
@@ -178,6 +194,14 @@ Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôt
               height={800}
               alt="Maquettes Lou Cantou"
               priority
+              className={styles.desktopOnly}
+            />
+            <Image
+              src="/projects/loucantou/mockups2_phone.png"
+              width={1200}
+              height={800}
+              alt="Maquettes Lou Cantou Mobile"
+              className={styles.mobileOnly}
             />
           </div>
           <p className={styles.mockupBottom}>Pour les plus curieux, le projet est disponible dans son intégralité sur Figma. Vous pourrez y découvrir plus en détail les maquettes, les composants et la structure complète de l’interface.</p>

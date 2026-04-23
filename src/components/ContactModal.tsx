@@ -34,14 +34,20 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     const formData = new FormData(form);
 
     try {
-      await fetch("/", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
       });
-      setStatus('success');
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        console.error("Netlify form submission failed:", response.statusText);
+        setStatus('error');
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Contact form error:", error);
       setStatus('error');
     }
   };
@@ -87,8 +93,6 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   name="contact"
                   action="/"
                   method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
                 >
                   <input type="hidden" name="form-name" value="contact" />
                   <p style={{ display: 'none' }}>

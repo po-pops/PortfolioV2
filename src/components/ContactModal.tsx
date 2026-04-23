@@ -30,20 +30,27 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     e.preventDefault();
     setStatus('submitting');
 
+    const encode = (data: Record<string, string>) => {
+      return Object.keys(data)
+        .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    };
+
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData) as Record<string, string>;
 
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        body: encode({ "form-name": "contact", ...data }),
       });
 
       if (response.ok) {
         setStatus('success');
       } else {
-        console.error("Netlify form submission failed:", response.statusText);
+        console.error("Netlify form submission failed:", response.status, response.statusText);
         setStatus('error');
       }
     } catch (error) {
@@ -93,6 +100,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   name="contact"
                   action="/"
                   method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                 >
                   <input type="hidden" name="form-name" value="contact" />
                   <p style={{ display: 'none' }}>

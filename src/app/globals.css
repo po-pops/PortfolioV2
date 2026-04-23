@@ -98,7 +98,11 @@
 
 html {
   /* Handle overscroll background colors (sky at top, blue at bottom) */
-  background: linear-gradient(to bottom, #d9f2fd 50%, var(--color-secondary-blue) 50%);
+  background: #d9f2fd url('/background-ciel.webp') no-repeat top center;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  /* Secondary blue for bottom overscroll */
+  background-color: var(--color-secondary-blue);
 }
 
 html,
@@ -108,8 +112,14 @@ body {
   /* clip instead of hidden allows position: sticky to work properly */
   font-family: var(--font-family-secondary);
   color: var(--color-text-dark);
-  background-color: var(--color-background-grid);
+  /* Use a transparent background for body to let html gradient show in overscroll */
+  background-color: transparent;
   line-height: 1.5;
+}
+
+/* Default background for main content to prevent transparency issues */
+main {
+  background-color: var(--color-background-grid);
 }
 
 a {

@@ -69,7 +69,6 @@ export default function RootLayout({
         </Providers>
         {/* Hidden form for Netlify detection */}
         <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-          <input type="hidden" name="form-name" value="contact" />
           <input type="text" name="firstname" />
           <input type="text" name="lastname" />
           <input type="email" name="email" />

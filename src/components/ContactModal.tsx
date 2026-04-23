@@ -41,7 +41,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     const data = Object.fromEntries(formData) as Record<string, string>;
 
     try {
-      const response = await fetch("/", {
+      // Submitting to /__forms.html bypasses Next.js route handling
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...data }),

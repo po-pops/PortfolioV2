@@ -44,8 +44,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
             position: 'fixed',
             top: 0,
             left: 0,
-            right: 0,
-            bottom: 0,
+            width: '100vw',
+            height: '100vh',
             backgroundColor: isHome ? 'transparent' : transitionColor,
             backgroundImage: isHome ? "url('/background-ciel.webp')" : 'none',
             backgroundSize: 'cover',
@@ -62,6 +62,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         initial={isInitialLoad ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
+        style={{ width: '100%', maxWidth: '100vw', overflowX: 'clip' }}
       >
         {children}
       </motion.div>

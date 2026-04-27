@@ -87,10 +87,6 @@
 .sticker {
   position: absolute;
   cursor: grab;
-  /* Hardware acceleration to prevent blur on mobile */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  image-rendering: -webkit-optimize-contrast;
   height: auto; /* Ensure aspect ratio is preserved */
   z-index: 20;
 }
@@ -103,28 +99,28 @@
   top: 12%;
   left: 5%;
   width: clamp(120px, 20vw, 260px);
-  transform: rotate(-10deg) translateZ(0);
+  transform: rotate(-10deg);
 }
 
 .stickerTcheen {
   top: 12%;
   right: 5%;
   width: clamp(100px, 25vw, 300px);
-  transform: rotate(5deg) translateZ(0);
+  transform: rotate(5deg);
 }
 
 .stickerLou {
   bottom: 12%;
   left: 5%;
   width: clamp(150px, 22vw, 280px);
-  transform: rotate(-8deg) translateZ(0);
+  transform: rotate(-8deg);
 }
 
 .stickerBugs {
   bottom: 10%;
   right: 5%;
   width: clamp(100px, 18vw, 220px);
-  transform: rotate(15deg) translateZ(0);
+  transform: rotate(15deg);
 }
 
 @media (max-width: 768px) {
@@ -141,28 +137,28 @@
     top: 10%;
     left: 2%;
     width: 140px;
-    transform: rotate(-10deg) translateZ(0);
+    transform: rotate(-10deg);
   }
 
   .stickerTcheen {
     top: 8%;
     right: 2%;
     width: 120px;
-    transform: rotate(5deg) translateZ(0);
+    transform: rotate(5deg);
   }
 
   .stickerLou {
     bottom: 15%;
     left: 2%;
     width: 160px;
-    transform: rotate(-8deg) translateZ(0);
+    transform: rotate(-8deg);
   }
 
   .stickerBugs {
     bottom: 12%;
     right: 2%;
     width: 130px;
-    transform: rotate(15deg) translateZ(0);
+    transform: rotate(15deg);
   }
 }
 

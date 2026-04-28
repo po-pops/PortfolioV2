@@ -89,6 +89,13 @@
   cursor: grab;
   height: auto; /* Ensure aspect ratio is preserved */
   z-index: 20;
+  /* Sharper rendering on mobile/Retina */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  image-rendering: -webkit-optimize-contrast;
+  will-change: transform;
 }
 
 .sticker:active {

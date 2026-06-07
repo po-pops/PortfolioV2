@@ -40,9 +40,9 @@ export default function LouCantouProject() {
                 <path d="M5.99988 11.72V12.566L11.0579 17.786L12.0119 16.832L7.99787 12.8H18.6719V11.468H8.01587L12.0119 7.454L11.0579 6.5L5.99988 11.72Z" fill="#1E1E1E" />
               </svg>
               Revenir à l’accueil</a>
-            <h1 className={styles.projectTitle}>Rebranding Lou Cantou</h1>
+            <h1 className={styles.projectTitle}>Lou Cantou</h1>
             <p className={styles.projectDesc}>
-              Lou Cantou, un établissement hôtelier chaleureux, souhaitait moderniser son image de marque afin de mieux communiquer ses valeurs d'authenticité et de proximité. Cette refonte complète inclut le logo, la direction artistique et le nouveau site web pour offrir une expérience utilisateur simple et accueillante.
+              Ce projet consiste en la création d’une identité visuelle et d’une maquette de site web pour les chambres d’hôtes de ma mère. Réalisé en une semaine, il comprend un rebranding complet ainsi que la refonte de son site internet, pensé pour moderniser l’image de l’établissement et valoriser son univers.
             </p>
 
             <div className={styles.metaInfo}>
@@ -67,7 +67,7 @@ export default function LouCantouProject() {
                 height={600}
                 className={`${styles.mockupImg}`}
               />
-  
+
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function LouCantouProject() {
           <div className={styles.besoinTextContainer}>
             <WordReveal
               className={styles.besoinParagraph}
-              text={`Dans le cadre de la modernisation de l'offre de chambres d'hôtes, l'objectif était de repenser l'image de l'établissement et de créer une présence en ligne plus actuelle et cohérente.
+              text={`L'objectif était de repenser l'image de l'établissement et de créer une présence en ligne plus actuelle et cohérente.
 
                 Le projet devait traduire l'esprit chaleureux et authentique des chambres d'hôtes tout en offrant une interface simple et agréable à parcourir pour les futurs clients.`}
             />
